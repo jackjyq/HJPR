@@ -1,0 +1,4 @@
+Week 1
+1. We formed a group of four people and selected the project manager.  We have sorted out the problem of forming a group across different lab time. 
+2. We have discussed and decided on our project topic. We are ready to bring our topic to the tutorial for next week.
+3. I created the Trello & GitHub & Google Drive accounts for the team. We have discussed the convention we need to follow of all those channels, especially on git workflow.
