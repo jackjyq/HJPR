@@ -1,2 +1,4 @@
 Week 1
 Group formed. I created my Trello account and join the team. I also made the skeleton of the prediction model for recommendation system. The core part of the model is the vector representation of course, which can use simular training stralegy like word2vec model. Then, we can map the outcome, student's requirement and description to the vector, then just use SVM or K-closest algorithm for evaluating.
+Week2
+I wrote a basic demo of the vector model, and summarize what the vector model can do at this stage. The main technical issue faced is that the provide JSON data is not useful for training - we have to get the data by ourselves. 
