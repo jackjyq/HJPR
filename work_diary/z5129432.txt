@@ -2,3 +2,8 @@ Week 1
 1. We formed a group of four people and selected the project manager.  We have sorted out the problem of forming a group across different lab time. 
 2. We have discussed and decided on our project topic. We are ready to bring our topic to the tutorial for next week.
 3. I created the Trello & GitHub & Google Drive accounts for the team. We have discussed the convention we need to follow of all those channels, especially on git workflow.
+
+Week 2
+1. We have discussed our project plan with the tutor during the tutorial, and have got his confirmation.
+2. I organized a meeting to discuss the proposal. We have decided which should be put in the proposal and assigned the work to different team members. Also, I have tracked everyone's contributio to the proposal with trello.
+3. Ring has demostrated the machine learning model for this project, therefore, we have a better sense of the feasibility of our idea.
