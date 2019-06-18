@@ -6,3 +6,15 @@ Week 1
 4. An initial idea of what the project should do was developed.
 5. Brainstorming was done to arrive at a consensus.
 6. Trello and Github accounts were made by the members in the team and the group members joined.
+
+Week 2
+1. The group worked with the tutor to find a project title suitable for the project.
+2. The group sat together and figured out what task is to be done by whom for the project propasal to be submitted next week.
+3. I worked on forming the problem statement with Himanshu.
+4. I created the diagram for the Software Architecture.
+5. I created the diagram for the System Module and Flow.
+
+
+Week 3
+1. The group reviewed the Project Proposal.
+2. I made the ammendments to the Problem Statement and the System Module and Flow with Himanshu.
