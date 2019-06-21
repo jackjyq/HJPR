@@ -7,3 +7,8 @@ Week 2
 1. We have discussed our project plan with the tutor during the tutorial, and have got his confirmation.
 2. I organized a meeting to discuss the proposal. We have decided which should be put in the proposal and assigned the work to different team members. Also, I have tracked everyone's contributio to the proposal with trello.
 3. Ring has demostrated the machine learning model for this project, therefore, we have a better sense of the feasibility of our idea.
+
+Week 3
+1. Each member is working on writing the proposal. We have finished the proposal and submit it.
+2. We have discussed the detailed functionality of this project especially the UI part
+3. I have organized a meeting and decided what to be demonstrated next week.
