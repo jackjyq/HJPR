@@ -1,5 +1,4 @@
 Week 1
-
 1. Our group of 4 members was formed.
 2. Introductions were made and we got to know each other a little better.
 3. We met at the library and discussed various scenarios in which our project would be useful.
@@ -18,3 +17,10 @@ Week 2
 Week 3
 1. The group reviewed the Project Proposal.
 2. I made the ammendments to the Problem Statement and the System Module and Flow with Himanshu.
+3. Made a basic wireframe on Figma.
+4. Made the logo for the Project.
+
+Week 4
+1. Had a discussion with Ali regarding the Project Proposal with the team.
+2. Set the basic FE Development environment using react-scripts.
+3. Made further improvements on the wireframe.
