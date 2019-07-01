@@ -12,3 +12,8 @@ Week 3
 1. Each member is working on writing the proposal. We have finished the proposal and submit it.
 2. We have discussed the detailed functionality of this project especially the UI part
 3. I have organized a meeting and decided what to be demonstrated next week.
+
+Week 4
+1. We have dicussed our proposal with tutor
+2. We have divided our team into frontend and backend, and I have created the structure folders in Github
+3. I have discussed Frontend part with Rishabh and continuing working on it
