@@ -1,3 +1,104 @@
-.show-border {
+@import url("https://fonts.googleapis.com/css?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
+
+.homepage-container {
+    height: 100%;
+    background: #320d6d;
+    color: #fff;
+}
+
+.homepage-row {
+    height: 100%;
+}
+
+.homepage-logo {
+    height: 50%;
+    margin: 25% 0;
+    transition-property: transform;
+    transition-duration: 0.4s;
+}
+
+.homepage-logo:hover {
+    transform: scale(1.1);
+}
+
+.homepage-find-courses {
+    font-size: 80px;
+    color: #ece9f1;
+    text-align: left;
+    z-index: 10;
+}
+
+.homepage-logo-col {
+    background: #87bcde;
+    transform: translate(40px, 20%);
+    height: 75% !important;
+    -webkit-box-shadow: 0px 0px 75px 0px rgba(135, 188, 222, 1);
+    -moz-box-shadow: 0px 0px 75px 0px rgba(135, 188, 222, 1);
+    box-shadow: 0px 0px 75px 0px rgba(135, 188, 222, 1);
+    z-index: 10;
+}
+
+.homepage-detail-col {
+    padding-right: 0px;
+}
+
+.homepage-detail {
+    position: relative;
+    padding: 25vh 0 0 15%;
+    /* margin-top: 5%; */
+    height: 100%;
+    background-color: rgb(95, 158, 160);
+    -webkit-box-shadow: 0px 0px 75px 0px rgba(95, 158, 160, 1);
+    -moz-box-shadow: 0px 0px 75px 0px rgba(95, 158, 160, 1);
+    box-shadow: 0px 0px 75px 0px rgba(95, 158, 160, 1);
+}
+.homepage-button {
+    background: #ab4e68;
+    padding: 25px 50px;
+    border-radius: 0px;
+    font-family: "Roboto Mono";
+    border: none;
+    font-size: 20px;
+    text-align: right;
+    margin-top: 5%;
+    margin-right: 10%;
+    font-weight: bolder;
+    z-index: 10;
+}
+.homepage-button:hover {
+    background-color: #83b692;
+    color: black;
     border: 1px solid black;
+}
+
+.homepage-detail-word-cloud div {
+    position: absolute;
+    bottom: 0;
+}
+
+.show-border {
+    /* border: 1px solid black; */
+    height: 100%;
+}
+
+.homepage-detail-svg-1,
+.homepage-detail-svg-2 {
+    position: absolute;
+    animation: rotate 50s infinite;
+    z-index: 1;
+}
+
+.homepage-detail-svg-1 {
+    animation: rotate 40s infinite reverse;
+    /* transform: translateX(-200px); */
+    left: 20%;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
