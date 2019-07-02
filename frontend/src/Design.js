@@ -1,3 +1,6 @@
+// This file is just for demostrate the user interface desgin
+// Therefore, no interaction handle in this code
+// The code here will eventually be moved into App.js, HomePage.js etc.
 import React from 'react';
 import logo from './logo.svg';
 import wordcloud from './wordcloud.jpg'
