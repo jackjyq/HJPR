@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Container, Row, Col, Button } from 'reactstrap';
+import { Jumbotron, Button } from 'reactstrap';
 import wordcloud from '../statics/wordcloud.jpg'
 
 class BrowsePage extends React.Component {

@@ -1,32 +1,23 @@
-// This file is just for demostrate the user interface desgin
-// Therefore, no interaction handle in this code
-// The code here will eventually be moved into App.js, HomePage.js etc.
+// This file is ONLY for demostration the UI and it is NOT part of the App
 import React from 'react';
-import logo from './statics/logo.svg';
-import wordcloud from './statics/wordcloud.jpg'
+import logo from '../statics/logo.svg';
+import wordcloud from '../statics/wordcloud.jpg'
 import {
-    Container,Badge,
-    Row,
+    Button,
+    Card, 
+    CardText,
+    CardBody,
+    CardTitle,
+    CardFooter,
+    CardHeader,
     Col,
     InputGroup,
     InputGroupAddon,
-    InputGroupButtonDropdown,
-    InputGroupDropdown,
     Input,
-    Button,
-    Dropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    Label,
-    Form, 
-    FormGroup,
-    FormText,
-    Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle,CardFooter,CardHeader,
-  Nav, NavItem, NavLink,
-  ListGroupItem, ListGroup,CustomInput,
-  Jumbotron
+    Jumbotron,
+    ListGroupItem,
+    ListGroup,
+    Row,
    } from 'reactstrap';
 
 
