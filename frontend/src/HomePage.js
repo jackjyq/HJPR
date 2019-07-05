@@ -3,32 +3,49 @@ import { Container, Row, Col, Button } from "reactstrap";
 import "./HomePage.css";
 import logo from "./logo.svg";
 // import UserPreference from "./UserPreference"
-import WordCloud from "react-d3-cloud";
+// import WordCloud from "react-d3-cloud";
+import TagCloud from "react-tag-cloud";
+import keyWords from "./keywords.json";
 
 class HomePage extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
-        const data = [
-            { text: "Hey", value: 1000 },
-            { text: "lol", value: 200 },
-            { text: "first impression", value: 800 },
-            { text: "very cool", value: 1000000 },
-            { text: "duck", value: 10 }
-        ];
-        const fontSizeMapper = word => Math.log2(word.value) * 5;
-        const rotate = word => word.value % 360;
+        this.handleWordCloudClick = this.handleWordCloudClick.bind(this);
         this.state = {
-            data: data,
-            fontSizeMapper: fontSizeMapper,
-            rotate: rotate
+            data: keyWords
         };
     }
 
     handleClick() {
-        alert("Hi Jack and Rishabh");
+        document.querySelector(".user-preference").scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
     }
+    handleWordCloudClick(e) {
+        alert(e.target.innerHTML);
+    }
+    componentDidMount() {
+        setInterval(() => {
+            this.forceUpdate();
+        }, 8000);
+    }
+
     render() {
+        let tt = this.state.data.keywords.map((val, i) => {
+            // console.log(val);
+            return (
+                <div
+                    style={{ fontSize: 20 }}
+                    key={i}
+                    onClick={this.handleWordCloudClick}
+                >
+                    {val}
+                </div>
+            );
+        });
+        console.log(tt);
         return (
             <Container fluid={true} className="homepage-container">
                 <Row className="homepage-row">
@@ -91,32 +108,46 @@ class HomePage extends Component {
                             </svg>
                             <Row>
                                 <Col className="homepage-find-courses">
-                                    Find the right courses for you that you
-                                    like!
+                                    Find the right courses for you.
                                 </Col>
                             </Row>
                             <Row>
-                                <Col>
-                                    <Button
-                                        // color="primary"
-                                        className="homepage-button"
-                                        onClick={this.handleClick}
-                                    >
-                                        Get Started
-                                    </Button>
-                                </Col>
+                                {/* <Col> */}
+                                <Button
+                                    // color="primary"
+                                    className="homepage-button"
+                                    onClick={this.handleClick}
+                                >
+                                    Get Started
+                                </Button>
+                                {/* </Col> */}
                             </Row>
                             <div className="homepage-detail-word-cloud">
-                                <WordCloud
+                                {/* <WordCloud
                                     data={this.state.data}
                                     fontSizeMapper={this.state.fontSizeMapper}
                                     // rotate={this.state.rotate}
                                     width={200}
                                     height={400}
                                     font={"Monospace"}
-                                />
+                                /> */}
+                                <TagCloud
+                                    style={{
+                                        fontFamily: "sans-serif",
+                                        fontSize: 10,
+                                        fontWeight: "bold",
+                                        fontStyle: "italic",
+                                        color: "#000",
+                                        padding: 2,
+                                        width: "100%",
+                                        height: "50%"
+                                    }}
+                                >
+                                    {tt}
+                                </TagCloud>
                             </div>
-                            <svg
+
+                            {/* <svg
                                 width="200"
                                 height="200"
                                 viewBox="0 0 200 200"
@@ -138,9 +169,9 @@ class HomePage extends Component {
                                     fill="transparent"
                                     strokeWidth="2"
                                     stroke="#60856b"
-                                />
+                                /> */}
 
-                                {/* <rect
+                            {/* <rect
                                     // id="a"
                                     // x="14"
                                     // y="23"
@@ -159,7 +190,7 @@ class HomePage extends Component {
                                     strokeWidth="2"
                                     stroke="#60856b"
                                 /> */}
-                            </svg>
+                            {/* </svg> */}
                         </div>
                     </Col>
                 </Row>
@@ -167,10 +198,5 @@ class HomePage extends Component {
         );
     }
 }
-
-Container.propTypes = {
-    fluid: true
-    // applies .container-fluid class
-};
 
 export default HomePage;

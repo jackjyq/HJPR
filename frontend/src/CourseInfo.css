@@ -1,0 +1,48 @@
+.course-info {
+    text-align: left;
+    height: 100%;
+}
+
+.course-info .row:first-child {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-info-code {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bolder;
+    /* margin: 20px 0; */
+    background-color: cornflowerblue;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 10px dashed white;
+    color: white;
+}
+
+.course-info-desc {
+    padding: 20px 40px;
+}
+
+.course-info-desc div {
+    padding-top: 15px;
+}
+
+.course-info-url {
+    display: block;
+    padding: 20px;
+    background-color: #2196f3;
+    color: white;
+    margin: 5% auto;
+    width: 25%;
+    text-align: center;
+}
+
+.course-info-url:hover {
+    background-color: #0d47a1;
+    color: white;
+    text-decoration: none;
+}
