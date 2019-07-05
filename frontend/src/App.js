@@ -1,19 +1,19 @@
-import React from 'react';
-import './App.css';
-import HomePage from "./HomePage/HomePage"
-import Design from "./HomePage/Design"
+import React, { Component } from "react";
+import HomePage from "./HomePage";
+import "./App.css";
+import UserPreference from "./UserPreference";
+import CourseInfo from "./CourseInfo";
 
-// HomePage is for the App
-// Design is for demostrate the UI
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <HomePage />
-        {/* <Design /> */}
-      </div>
-    );
-  }
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+                {/* <HomePage /> */}
+                {/* <UserPreference /> */}
+                <CourseInfo />
+            </div>
+        );
+    }
 }
 
 export default App;
