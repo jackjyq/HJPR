@@ -8,7 +8,7 @@ Week 1
 
 Week 2
 1. The group worked with the tutor to find a project title suitable for the project.
-2. The group sat together and figured out what task is to be done by whom for the project propasal to be submitted next week.
+2. The group sat together and figured out what task is to be done by whom for the project proposal to be submitted next week.
 3. I worked on forming the problem statement with Himanshu.
 4. I created the diagram for the Software Architecture.
 5. I created the diagram for the System Module and Flow.
@@ -16,7 +16,7 @@ Week 2
 
 Week 3
 1. The group reviewed the Project Proposal.
-2. I made the ammendments to the Problem Statement and the System Module and Flow with Himanshu.
+2. I made the amendments to the Problem Statement and the System Module and Flow with Himanshu.
 3. Made a basic wireframe on Figma.
 4. Made the logo for the Project.
 
@@ -24,3 +24,9 @@ Week 4
 1. Had a discussion with Ali regarding the Project Proposal with the team.
 2. Set the basic FE Development environment using react-scripts.
 3. Made further improvements on the wireframe.
+
+Week 5
+1. Started Working on the UI of the webpage.
+2. Had a meeting with Jack and Himanshu about the JSON contract.
+3. Finalised the contract.
+4. Finalised the UI and styling.

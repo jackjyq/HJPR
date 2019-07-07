@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
     Button,
     Card,
@@ -17,6 +18,7 @@ import {
 } from "reactstrap";
 import ShowList from "./ShowList";
 import CourseList from "../CourseList/CourseList";
+import "./SuggestPage.css";
 
 class SuggestPage extends React.Component {
     constructor(props) {
@@ -92,20 +94,23 @@ class SuggestPage extends React.Component {
         const course = this.state.course;
         const showCourseList = this.state.showCourseList;
         return (
-            // <div className="user-preference">
             <Jumbotron className="user-preference">
                 <h1 className="display-3">
                     Tell us a little bit about yourself
                 </h1>
                 <p className="lead">
-                    Please tell us a little bit about yourself, so that we could
-                    give you the correct recommendations.
+                    Please tell us a little bit about yourself, so that we can
+                    fine tune your recommendations.
                 </p>
-                <hr className="my-2" />
-                <Row className="lead">
-                    <Col sm="4">Skills Add the skills you want to learn</Col>
+                {/* <hr className="my-2" /> */}
+                <Row className="lead question">
+                    <Col sm="4">
+                        <span className="span-question">
+                            Add the skills you want to learn
+                        </span>
+                    </Col>
                     <Col md="8">
-                        <InputGroup>
+                        <InputGroup className="questions-inputs">
                             <Input
                                 value={skill}
                                 id="skillInput"
@@ -114,7 +119,7 @@ class SuggestPage extends React.Component {
                             />
                             <InputGroupAddon addonType="append">
                                 <Button
-                                    color="success"
+                                    color="primary"
                                     id="addSkill"
                                     onClick={this.handleClick}
                                 >
@@ -122,37 +127,22 @@ class SuggestPage extends React.Component {
                                 </Button>
                             </InputGroupAddon>
                         </InputGroup>
-                        {/* </CardBody> */}
-                        {/* <CardFooter className="text-muted"> */}
-                        <ListGroup>
+                        <ListGroup className="list-additions">
                             <ShowList
                                 list={this.state.skills}
                                 onRemoveItem={this.onRemoveSkills}
                             />
-                            {/* List Example */}
-                            {/* <ListGroupItem color="success">Python<Button close /></ListGroupItem>
-                            <ListGroupItem color="info">Programming<Button close /></ListGroupItem>
-                            <ListGroupItem color="warning">Teamwork<Button close /></ListGroupItem> */}
-                        </ListGroup>{" "}
-                        {/* </CardFooter> */}
-                        {/* </Card>{" "} */}
+                        </ListGroup>
                     </Col>
                 </Row>
-                <Row>
-                    {/* Courses Card */}
+                <Row className="lead question">
                     <Col sm="4">
-                        {/* {" "} */}
-                        {/* <Card> */}
-                        {/* <CardHeader tag="h3"> */}
-                        Courses
-                        {/* </CardHeader> */}
-                        {/* <CardBody> */}
-                        {/* <CardTitle> */}
-                        Add the courses you have taken
-                        {/* </CardTitle> */}
+                        <span className="span-question">
+                            Add the courses you have taken
+                        </span>
                     </Col>
                     <Col md="8">
-                        <InputGroup>
+                        <InputGroup className="questions-inputs">
                             <Input
                                 value={course}
                                 id="courseInput"
@@ -161,7 +151,7 @@ class SuggestPage extends React.Component {
                             />
                             <InputGroupAddon addonType="append">
                                 <Button
-                                    color="danger"
+                                    color="primary"
                                     id="addCourse"
                                     onClick={this.handleClick}
                                 >
@@ -169,58 +159,32 @@ class SuggestPage extends React.Component {
                                 </Button>
                             </InputGroupAddon>
                         </InputGroup>
-                        {/* </CardBody> */}
-                        {/* <CardFooter className="text-muted"> */}
-                        {/* {" "} */}
-                        <ListGroup>
+                        <ListGroup className="list-additions">
                             <ShowList
                                 list={this.state.courses}
                                 onRemoveItem={this.onRemoveCourses}
                             />
-                            {/* List Examples */}
-                            {/* <ListGroupItem color="info">MA3402<Button close /></ListGroupItem>
-                            <ListGroupItem color="warning">DRA1002<Button close /></ListGroupItem>
-                            <ListGroupItem color="danger">GEOL3092<Button close /></ListGroupItem> */}
                         </ListGroup>
-                        {/* </CardFooter> */}
-                        {/* </Card>{" "} */}
                     </Col>
                 </Row>
-                {/* <Row>
-                        <Col sm="4">
-                            {" "}
-                            <Card>
-                                <CardHeader tag="h3">Questionary</CardHeader>
-                                <CardBody>
-                                    <CardTitle>
-                                        Answer the questions below
-                                    </CardTitle>
-                                    <CardText> </CardText>
-                                </CardBody>
-                                <CardFooter className="text-muted">
-                                    This function is under development
-                                </CardFooter>
-                            </Card>{" "}
-                        </Col>
-                    </Row>{" "} */}
-                {/* </div> */}
-                {/* Margin and Buttons */}
-                <p className="lead" />
+                {/* <p className="lead" /> */}
                 <p className="lead">
                     <Button
-                        color="primary"
+                        color="success"
                         id="submitButton"
                         onClick={this.handleClick}
+                        className="button-questions"
                     >
                         Submit
-                    </Button>{" "}
+                    </Button>
                     <Button
                         color="danger"
                         id="discardButton"
                         onClick={this.handleClick}
+                        className="button-questions"
                     >
                         Discard
-                    </Button>{" "}
+                    </Button>
                 </p>
                 {showCourseList && (
                     <CourseList
@@ -229,9 +193,6 @@ class SuggestPage extends React.Component {
                         setCourseInfo={this.props.setCourseInfo}
                     />
                 )}
-                {/*Course List Page */}
-
-                {/* </div> */}
             </Jumbotron>
         );
     }

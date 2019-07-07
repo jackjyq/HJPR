@@ -1,0 +1,39 @@
+.lead.question {
+    text-align: left;
+    margin: 25px 0;
+}
+.lead {
+    margin: 50px;
+}
+.span-question {
+    display: inline-block;
+    padding: 15px 5px;
+}
+.list-additions {
+    flex-direction: unset;
+}
+.user-preference {
+    background: none;
+}
+.questions-inputs input {
+    padding: 25px 10px;
+}
+.list-additions li {
+    width: 20%;
+    display: inline-block;
+    padding: 5px;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 0.25%;
+}
+.list-additions li button {
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.button-questions {
+    margin: 20px;
+    border-radius: 0;
+    padding: 20px 35px;
+    font-weight: bold;
+}

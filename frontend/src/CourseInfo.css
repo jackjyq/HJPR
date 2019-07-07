@@ -36,7 +36,7 @@
     padding: 20px;
     background-color: #2196f3;
     color: white;
-    margin: 5% auto;
+    margin: 1.5% auto;
     width: 25%;
     text-align: center;
 }
@@ -45,4 +45,25 @@
     background-color: #0d47a1;
     color: white;
     text-decoration: none;
+}
+
+.course-info-related-courses {
+    text-align: center;
+}
+
+/* .course-info-related-courses div {
+    padding-top: 5px;
+} */
+
+.related-courses-header {
+    font-size: 20px;
+    margin: 0 auto;
+}
+.course-info-related-courses a {
+    display: inline-block;
+    padding: 10px;
+    background-color: #2196f3;
+    color: white;
+    width: 80%;
+    margin: 10px auto 25px;
 }
