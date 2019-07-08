@@ -17,3 +17,8 @@ Week 4
 1. We have dicussed our proposal with tutor
 2. We have divided our team into frontend and backend, and I have created the structure folders in Github
 3. I have discussed Frontend part with Rishabh and continuing working on it
+
+Week 5
+1. I have coded the frontend by using reactstrap
+2. I have dicussed the backend API references with Rishabh and Himansu, and write a draft of this documentation
+3. Rishabh will merge my code into his frontend design
