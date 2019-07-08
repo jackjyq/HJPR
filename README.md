@@ -4,9 +4,11 @@
 
 - URL: /skills
 - Method: GET
-- Decription: get the list of skills in all courses, and the number of courses for each skill.
+- Content: Null
 
 ### Success Response
+
+Return the list of skills in all courses, and the number of courses for each skill.
 
 - CODE: 200
 - Content:
@@ -23,9 +25,11 @@
 
 - URL: /courses
 - Method: GET
-- Description: get the list of all courses
+- Content: Null
 
 ### Success Response
+
+return the list of all courses
 
 - CODE: 200
 - Content:
@@ -40,7 +44,6 @@
 
 - URL: /suggest
 - Method: POST
-- Description: return a list of recommended courses sorted according to the relevence in decending order
 - Content:
   
 ```json
@@ -53,43 +56,44 @@
 
 ### Success Response
 
+return a list of recommended courses sorted according to the relevance in descending order
+
 - CODE: 200
 - Content:
 
 ```json
 {
-    {
-        "courses": [ "TSMA2004", "TSMA4100", "AUT2201"]
-    }
+    "courses": [ "TSMA2004", "TSMA4100", "AUT2201"]
 }
 ```
 
 ### Error Response
 
-return an error messenge if the client has sent bad request
+return an error message if the client has sent bad request
 
 - CODE: 400
 - Content:
 
 ```json
 {
-    {
-        "errorMsg": "whatever error messeage specified by backend"
-    }
+    "errorMsg": "whatever error messeage specified by backend"
 }
+```
 
-## get course information
+## Get course information
 
 - URL: /course/<course code>
 - Method: GET
-- Decription: the skills and similar courses should be sorted in decending order
+- Content: Null
 
 ### Success Response
+
+return the skills and similar courses which should be sorted in descending order
 
 - CODE: 200
 - Content:
 
-​```json
+```json
 {
     "courseCode": "course code",
     "skills": [ "analysis", "python", "problem solving"],
@@ -102,7 +106,7 @@ return an error messenge if the client has sent bad request
 
 ### Error Response
 
-the course code does not exist
+return when the course code does not exist
 
 - CODE: 404
 - Content:
