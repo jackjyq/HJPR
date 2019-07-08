@@ -1,0 +1,7 @@
+{
+    "courses": [
+        { "label": "TSMA2004", "value": 0.7 },
+        { "label": "TSMA4100", "value": 0.2 },
+        { "label": "AUT2201", "value": 0.1 }
+    ]
+}

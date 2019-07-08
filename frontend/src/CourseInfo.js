@@ -9,7 +9,7 @@ class CourseInfo extends Component {
             "https://www.ntnu.edu/studies/courses/" +
             `${CourseInfoData.courseCode}`;
         let desc = CourseInfoData.courseDesc.replace(/[0-9]./g, "<\n>$& ");
-        console.log(desc);
+        // console.log(desc);
         let courseCards = CourseInfoData.similarCourses.map((val, i) => {
             let courseCode = "https://www.ntnu.edu/studies/courses/";
             return (
