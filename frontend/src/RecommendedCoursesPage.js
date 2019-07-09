@@ -1,15 +1,7 @@
 import React, { Component } from "react";
 import "./RecommendedCoursesPage.css";
 import DonutChart from "react-donut-chart";
-import {
-    Container,
-    Row,
-    Col,
-    // ListGroup,
-    // ListGroupItem,
-    Card,
-    CardTitle
-} from "reactstrap";
+import { Container, Row, Col, Card, CardTitle } from "reactstrap";
 import recommendedCourses from "./recommendedCourses.json";
 
 class RecommendedCoursesPage extends Component {
@@ -18,9 +10,13 @@ class RecommendedCoursesPage extends Component {
         let coursesList = recommendedCourses.courses.map((val, i) => {
             return (
                 <Col md={12} key={i}>
-                    <Card href={courseURL + val.label}>
+                    <Card href={courseURL + val.label} className="course-card">
                         <CardTitle>{val.label}</CardTitle>
-                        <a href={courseURL + val.label} target="_blank">
+                        <a
+                            href={courseURL + val.label}
+                            target="_blank"
+                            className="course-link"
+                        >
                             Know More
                         </a>
                     </Card>

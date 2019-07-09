@@ -29,7 +29,7 @@ class HomePage extends Component {
     componentDidMount() {
         setInterval(() => {
             this.forceUpdate();
-        }, 8000);
+        }, 3000);
     }
 
     render() {
