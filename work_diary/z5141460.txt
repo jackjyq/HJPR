@@ -1,4 +1,10 @@
 Week 1
-Group formed. I created my Trello account and join the team. I also made the skeleton of the prediction model for recommendation system. The core part of the model is the vector representation of course, which can use simular training stralegy like word2vec model. Then, we can map the outcome, student's requirement and description to the vector, then just use SVM or K-closest algorithm for evaluating.
+Group formed. I created my Trello account and join the team. I also made the skeleton of the prediction model for recommendation system. The core part of the model is the vector representation of course, which can use similar training strategy like word2vec model. Then, we can map the outcome, student's requirement and description to the vector, then just use SVM or K-closest algorithm for evaluating.
 Week2
 I wrote a basic demo of the vector model, and summarize what the vector model can do at this stage. The main technical issue faced is that the provide JSON data is not useful for training - we have to get the data by ourselves. 
+Week3
+Working one the proposal, I work on writing the technical part and finish it. After the report is submitted, I start work on implementing the prediction model.
+Week4
+We discussed our proposal with tutor. This week, I found an new, state-of-art model, BERT, and demonstrate it to the team members. However there are some problem with the training. The graphic card of my laptop only have 2 GB memory. So it seems impossible for training the model. Jiang Yi Qun said we can train the model in google colab.
+Week5
+I still cannot train the model in colab. While it will be fine after I got the new computer. This week I implement the kNN algorithm, which can return the similar course to the input. Also, I write a bash shell, which is able to transfer all course description file to vector.
