@@ -14,6 +14,7 @@ python3 -m pip install -r package.txt
 ```shell 
 source ./python_modules/bin/activate
 python main.py
+deactivate  # after finish
 ```
 
 ### 2. Alternative Way
@@ -22,17 +23,11 @@ python main.py
 ./python_modules/bin/python main.py
 ```
 
-## Reference
-
-### deactivate
+## Install new package
 
 ```shell
-deactivate
-```
-
-### install new package
-
-```
+source ./python_modules/bin/activate
 pip install your_python_module_name
 python -m pip freeze > package.txt
+deactivate  # after finish
 ```
