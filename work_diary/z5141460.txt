@@ -8,3 +8,5 @@ Week4
 We discussed our proposal with tutor. This week, I found an new, state-of-art model, BERT, and demonstrate it to the team members. However there are some problem with the training. The graphic card of my laptop only have 2 GB memory. So it seems impossible for training the model. Jiang Yi Qun said we can train the model in google colab.
 Week5
 I still cannot train the model in colab. While it will be fine after I got the new computer. This week I implement the kNN algorithm, which can return the similar course to the input. Also, I write a bash shell, which is able to transfer all course description file to vector.
+Week6
+Done with the BERT model recommendation. The only thing that still need implement is fine-grain training and an auto-encoder to transfer vector list to a single vector. In this stage, I simply calculate the average. Besides, I wrote the function for recommendation course from user's open-ending questions.   
