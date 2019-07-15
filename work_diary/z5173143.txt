@@ -30,3 +30,8 @@ Week 5
 2. Had a meeting with Jack and Himanshu about the JSON contract.
 3. Finalised the contract.
 4. Finalised the UI and styling.
+
+Week 6
+1. Had a meeting with Ali about the UI.
+2. Implemented changes in words as suggested by Ali.
+3. Added the header and footer as suggested by Ali.

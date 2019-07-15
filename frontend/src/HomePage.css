@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
 
 .homepage-container {
-    height: 100%;
+    height: calc(100% - 50px);
     background: #320d6d;
     color: #fff;
 }

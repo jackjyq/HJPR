@@ -1,6 +1,7 @@
 .recommended-courses-header {
-    font-size: 3rem;
+    font-size: 2.5rem;
     padding: 20px;
+    text-align: left;
 }
 .course-card {
     padding: 20px;
@@ -26,4 +27,15 @@
 }
 .recommended-courses-chart {
     padding: 9vh 0 0;
+}
+.donutchart-arcs-path {
+    cursor: pointer;
+}
+.recommended-courses-chart .recommended-courses-desc {
+    margin-left: 10px;
+    margin-right: 20px;
+    text-align: left;
+    padding: 20px;
+    border: 1px solid black;
+    /* padding-right: 15px; */
 }

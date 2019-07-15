@@ -39,7 +39,7 @@ class CourseInfo extends Component {
                                 target="_blank"
                                 className="course-info-url"
                             >
-                                Link to Course
+                                See more Details
                             </a>
                         </Row>
                         <Row className="related-courses-header">

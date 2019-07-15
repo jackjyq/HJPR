@@ -1,0 +1,12 @@
+.footer {
+    height: 50px;
+    font-size: 2rem;
+    background: #25272e;
+    color: #fff;
+}
+.footer a {
+    color: #fff;
+}
+.footer a:hover {
+    text-decoration: none;
+}
