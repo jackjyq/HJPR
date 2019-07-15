@@ -1,8 +1,10 @@
-# HJPR API Documentation
+# Backend API Documentation
+
+@base: http://localhost:5000
 
 ## Get the skills
 
-- URL: /skills
+- URL: @base/api/skills
 - Method: GET
 - Content: Null
 
@@ -23,7 +25,7 @@ Return the list of skills in all courses, and the number of courses for each ski
 
 ## Get the courses
 
-- URL: /courses
+- URL: @base/api/courses
 - Method: GET
 - Content: Null
 
@@ -42,7 +44,7 @@ return the list of all courses
 
 ## Get the suggested courses
 
-- URL: /suggest
+- URL: @base/api/suggest
 - Method: POST
 - Content:
   
@@ -82,7 +84,7 @@ return an error message if the client has sent bad request
 
 ## Get course information
 
-- URL: /course/<course code>
+- URL: @base/api/course/@course_code
 - Method: GET
 - Content: Null
 
