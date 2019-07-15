@@ -1,6 +1,7 @@
 from flask import Flask, json, jsonify, render_template, request
+from flask_cors import CORS
 app = Flask(__name__)
-
+CORS(app)
 
 DATABASE = "./dump_database"
 
@@ -11,7 +12,7 @@ def get_documentation():
 
 
 # Get the skills
-@app.route('/api/skills', methods = ["GET"])
+@app.route('/api/skills/', methods = ["GET"])
 def get_skills():
     with open(DATABASE + "/skills.json") as f:
         data = json.load(f)
@@ -19,7 +20,7 @@ def get_skills():
 
 
 # Get the courses
-@app.route('/api/courses', methods = ["GET"])
+@app.route('/api/courses/', methods = ["GET"])
 def get_courses():
     with open(DATABASE + "/courses.json") as f:
         data = json.load(f)
@@ -27,7 +28,7 @@ def get_courses():
 
 
 # Get the suggested courses
-@app.route('/api/suggest', methods = ["GET", "POST"])
+@app.route('/api/suggest/', methods = ["GET", "POST"])
 def get_suggested_courses():
     # data = request.data
     if (request.method == "POST"):
@@ -38,7 +39,7 @@ def get_suggested_courses():
         return "You need to use POST method", 400
 
 # Get course information
-@app.route('/api/course/<course_code>', methods = ["GET"])
+@app.route('/api/course/<course_code>/', methods = ["GET"])
 def get_course_information(course_code):
     # data = request.data
     with open(DATABASE + "/course_information_succeed.json") as f:
