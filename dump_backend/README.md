@@ -1,5 +1,7 @@
 # how to run backend (Jack Jiang)
 
+the dump_backend is used for testing frontend
+
 ## Install python modules from package.txt
 
 ```shell
