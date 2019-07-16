@@ -1,25 +1,27 @@
 # HJPR Backend Deployment Documentation
 
-## 1. Install python modules from package.txt
+## Frist Time Setup
 
 ```shell
-python3 -m venv python_modules
-python3 -m pip install -r package.txt
+python3 -m venv python_modules          # create python virtual environment
+source ./python_modules/bin/activate    # activate python virtual environment
+python3 -m pip install -r package.txt   # install package from package.txt
+deactivate                              # deactivate python virtual environment
 ```
 
-## 2. Run main.py using Python modules
+## Run Code
 
 ```shell 
-source ./python_modules/bin/activate
-python main.py
-deactivate  # after finish
+source ./python_modules/bin/activate    # activate python virtual environment
+python main.py                          # run backend
+deactivate                              # deactivate python virtual environment
 ```
 
-## 3. Install new package (if needed)
+## Install new package (if needed)
 
 ```shell
-source ./python_modules/bin/activate
+source ./python_modules/bin/activate    # activate python virtual environment
 pip install your_python_module_name
 python -m pip freeze > package.txt
-deactivate  # after finish
+deactivate                              # deactivate python virtual environment
 ```
