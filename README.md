@@ -2,9 +2,9 @@
 
 @base: http://localhost:5000
 
-## Get the skills
+## Get the cloud
 
-- URL: @base/api/skills
+- URL: @base/api/cloud
 - Method: GET
 - Content: Null
 
@@ -20,6 +20,25 @@ Return the list of skills in all courses, and the number of courses for each ski
     "analysis": 0.01,
     "modern geometric": 0.005,
     "python": 0.02
+}
+```
+
+## Get the skills
+
+- URL: @base/api/skills
+- Method: GET
+- Content: Null
+
+### Success Response
+
+Return the list of skills in all courses.
+
+- CODE: 200
+- Content:
+
+```json
+{
+    "skills": [ "Python", "analysis", "modern geometric"]
 }
 ```
 
@@ -65,7 +84,18 @@ return a list of recommended courses sorted according to the relevance in descen
 
 ```json
 {
-    "courses": [ "TSMA2004", "TSMA4100", "AUT2201"]
+    "courses": [
+        {
+            "label": "MA3402",
+            "value": 0.7,
+            "desc": "desc"
+        },
+        {
+            "label": "MUSP4145",
+            "value": 0.2,
+            "desc": "desc"
+        }
+    ]
 }
 ```
 
@@ -82,6 +112,40 @@ return an error message if the client has sent bad request
 }
 ```
 
+### Interface of suggest function
+
+```python
+import suggest from ./rakegenism/runner.py as rakegenism
+
+parameter = {
+    "skills": [ "analysis", "python", "problem solving"],
+    "courses": [ "TSMA2004", "TSMA4100", "AUT2201"],
+    "questions": [],
+}
+
+code, value = rakegenism(parameter)
+
+if succeed:
+    code = 0
+    value = {
+    "courses": [
+        {
+            "label": "MA3402",
+            "value": 0.7,
+            "desc": "desc"
+        },
+        {
+            "label": "MUSP4145",
+            "value": 0.2,
+            "desc": "desc"
+        }
+        ]
+    }
+else:
+    code = 1
+    value = "Error"
+```
+
 ## Get course information
 
 - URL: @base/api/course/@course_code
@@ -96,6 +160,7 @@ return the skills and similar courses which should be sorted in descending order
 - Content:
 
 ```json
+
 {
     "courseCode": "course code",
     "skills": [ "analysis", "python", "problem solving"],
