@@ -1,6 +1,10 @@
-# Frontend
+# HJPR Backend Deployment Documentation
 
-## To Start Front End Development (Rishabh):
+## URL
+
+http://localhost:3000
+
+## Deployment
 
 - Clone the repo.
 - Make sure that npm is installed in your system.
