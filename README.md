@@ -4,10 +4,10 @@ Course Feature Extraction and Recommender System
 
 ## Documentation
 
-[HJPR Backend API Documentation](./backend/api.md)
-[HJPR Backend Deployment Documentation](./backend/README.md)
-[HJPR Backend Fuction Interface](./backend/interface.md)
-[HJPR Frontend Deployment Documentation](./frontend/README.md)
+- [HJPR Backend API Documentation](./backend/api.md)
+- [HJPR Backend Deployment Documentation](./backend/README.md)
+- [HJPR Backend Fuction Interface](./backend/interface.md)
+- [HJPR Frontend Deployment Documentation](./frontend/README.md)
 
 ## References
 
