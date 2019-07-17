@@ -1,4 +1,4 @@
 - HJPR Backend Server is Running!
 - However, the API does not exist.
 - Please check your URL and HTTP Method.
-- You may want to read [HJPR Backend API Documentation](https://github.com/unsw-cse-comp3900-9900/capstone-project-hjpr/blob/master/backend/api.md).
+- You may want to read [HJPR Backend API Documentation](https://github.com/unsw-cse-comp3900-9900/capstone-project-hjpr/blob/master/documentation/backend_api.md).

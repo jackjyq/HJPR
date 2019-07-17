@@ -1,0 +1,23 @@
+{
+    "TSMA2004": {
+        "courseCode": "TSMA2004",
+        "skills": [ "analysis", "python", "problem solving"],
+        "courseDesc": "course description",
+        "similarCourses" :["TSMA2004", "TSMA4100", "AUT2201"],
+        "courseUrl": "http://the home page of that course"
+    },
+    "TSMA4100": {
+        "courseCode": "TSMA4100",
+        "skills": [ "analysis", "python", "problem solving"],
+        "courseDesc": "course description",
+        "similarCourses" :["TSMA2004", "TSMA4100", "AUT2201"],
+        "courseUrl": "http://the home page of that course"
+    },
+    "AUT2201": {
+        "courseCode": "AUT2201",
+        "skills": [ "analysis", "python", "problem solving"],
+        "courseDesc": "course description",
+        "similarCourses" :["TSMA2004", "TSMA4100", "AUT2201"],
+        "courseUrl": "http://the home page of that course"
+    }
+}

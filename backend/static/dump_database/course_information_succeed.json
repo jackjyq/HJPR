@@ -1,8 +1,0 @@
-{
-    "courseCode": "course code",
-    "skills": [ "analysis", "python", "problem solving"],
-    "courseDesc": "course description",
-    "similarCourses" :["TSMA2004", "TSMA4100", "AUT2201"],
-    "courseUrl": "http://the home page of that course"
-
-}

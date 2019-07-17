@@ -1,6 +1,10 @@
 # HJPR Backend Fuction Interface
 
-Interface of suggest function
+## Sample data
+
+[Sample data](./sample_data)
+
+## Interface of suggest function
 
 ```python
 import suggest from ./rakegenism/runner.py as rakegenism
@@ -12,10 +16,10 @@ parameter = {
     "questions": "I like python",
 }
 
-code, value = rakegenism(parameter)
+status, value = rakegenism(parameter)
 
 if succeed:
-    code = 0
+    status = 0
     value = {
     "courses": [
         {
@@ -31,6 +35,6 @@ if succeed:
         ]
     }
 else:
-    code = 1
+    status != 1
     value = "Error"
 ```

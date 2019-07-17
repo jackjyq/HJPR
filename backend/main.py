@@ -1,35 +1,35 @@
-from config import *
+# Name: Main.py
+# Author: Jack Jiang (z5129432)
+# Date: 2019-07
+# Description:
+#   this file implement HJPR Backend API, see documentation for details
+#   # https://github.com/unsw-cse-comp3900-9900/capstone-project-hjpr/blob/master/backend/api.md
 from flask import Flask, json, jsonify, render_template, request
 from flask_cors import CORS
 from mongoengine import connect, StringField, Document
+
+from config import ML_MODEL
+from db_model import Statistic, Course_Info
+from ml_model import get_database_url, bootstrap, suggest_runner
+
+############################ Initialization ############################
+DB_URL = get_database_url()
+bootstrap()     # bootstrap the machine learning model
 app = Flask(__name__)
 CORS(app)
 
 
-class Statistic(Document):
-# {
-#     "cloud": {
-#         "analysis": 0.01,
-#         "modern geometric": 0.005,
-#         "python": 0.02
-#     },
-#     "skills": [ "Python", "analysis", "modern geometric"],
-#     "courses": [ "TSMA2004", "TSMA4100", "AUT2201"]
-# }
-    key = StringField(required=True, primary_key=True)
-    data = StringField(required=True)
-
-    def __init__(self, key, data, *args, **values):
-        super().__init__(*args, **values)
-        self.key = key
-        self.data = data
-
+######################## Helper functions ##############################
+def get_error_message(messeage):
+    # input a str error message
+    # return a json format
+    #   {
+    #       "errorMsg": messeage
+    #   }
+    return jsonify({"errorMsg": messeage})
 
 
 ################### HJPR Backend API Implementation ####################
-# https://github.com/unsw-cse-comp3900-9900/capstone-project-hjpr/blob/master/backend/api.md
-
-
 @app.route('/api/cloud', methods = ["GET"])
 # Get the cloud
 # Return the list of skills in all courses, 
@@ -42,8 +42,9 @@ class Statistic(Document):
 def get_cloud():
     if Statistic.objects(key="cloud"):
         data_json =  Statistic.objects(key="cloud")[0].data
-        data_dict = dict(json.loads(data_json))
-    return render_template("index.html"), 400
+        return data_json, 200
+    else:
+        return get_error_message("database error"), 500
 
 
 @app.route('/api/skills/', methods = ["GET"])
@@ -53,10 +54,11 @@ def get_cloud():
 #       "skills": [ "Python", "analysis", "modern geometric"]
 #   }
 def get_skills():
-    with open(DATABASE + "/skills.json") as f:
-        data = json.load(f)
-    return jsonify(data), 200
-
+    if Statistic.objects(key="skills"):
+        data_json =  Statistic.objects(key="skills")[0].data
+        return data_json, 200
+    else:
+        return get_error_message("database error"), 500
 
 
 @app.route('/api/courses/', methods = ["GET"])
@@ -66,13 +68,15 @@ def get_skills():
 #       "courses": [ "TSMA2004", "TSMA4100", "AUT2201"]
 #   }
 def get_courses():
-    with open(DATABASE + "/courses.json") as f:
-        data = json.load(f)
-    return jsonify(data), 200
+    if Statistic.objects(key="courses"):
+        data_json =  Statistic.objects(key="courses")[0].data
+        return data_json, 200
+    else:
+        return get_error_message("database error"), 500
 
 
 
-@app.route('/api/suggest/', methods = ["GET", "POST"])
+@app.route('/api/suggest/', methods = ["POST"])
 # Get the suggested courses
 # Send
 #   {
@@ -100,13 +104,13 @@ def get_courses():
 #       "errorMsg": "whatever error messeage specified by backend"
 #   }
 def get_suggest():
-    # data = request.data
-    if (request.method == "POST"):
-        with open(DATABASE + "/suggested_courses_succeed.json") as f:
-            data = json.load(f)
-        return jsonify(data), 200
+    data_json = request.data
+    data_dict = json.loads(data_json)
+    status, value = suggest_runner(data_dict)
+    if (status == 0):
+        return jsonify(value), 200
     else:
-        return render_template("index.html"), 400
+        return get_error_message(value), 400
 
 
 
@@ -129,33 +133,26 @@ def get_suggest():
 #       "errorMsg": "the course code does not exist"
 #   }
 def get_info(course_code):
-    # data = request.data
-    with open(DATABASE + "/course_information_succeed.json") as f:
-        data = json.load(f)
-    return jsonify(data), 200
+    if Course_Info.objects(code=course_code):
+        data_json =  Course_Info.objects(code=course_code)[0].data
+        return data_json, 200
+    else:
+        error_dict = {   
+                "courseCode": course_code,
+                "errorMsg": "the course code does not exist"
+                }
+        return jsonify(error_dict), 404
 
 
 @app.route('/', methods = ["GET"])
 # Index Page
 #   Just show some information
 def get_index():
-    return render_template("index.html"), 400
+    return render_template("index.html"), 200
 
 
 ############################ Main Function #############################
 if __name__ == "__main__":
     db_client = connect(host=DB_URL)
     app.run(host = 'localhost',port=5000, debug=True)
-    # data_json = json.dumps({
-    #         "analysis": 0.01,
-    #         "modern geometric": 0.005,
-    #         "python": 0.02
-    #         })
-    # instance = Statistic("cloud", data_json)
-    # instance.save()
-    # if Statistic.objects(key="cloud"):
-    #     data_json =  Statistic.objects(key="cloud")[0].data
-    #     data_dict = dict(json.loads(data_json))
-    #     print("ok")
-    #     print(data_json)
     db_client.close()

@@ -2,8 +2,19 @@
 
 ## @URL
 
-http://localhost:5000
+[http://localhost:5000](http://localhost:5000)
 
+# Error Messeage
+
+if there is some error from the backend, e.g. database could not be connected, then return the following
+
+- CODE: 500
+
+```json
+{
+    "errorMsg": "error messeage specified by backend, e.g. database error"
+}
+```
 
 
 # Get the cloud
