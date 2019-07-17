@@ -12,6 +12,7 @@ from config import ML_MODEL
 from db_model import Statistic, Course_Info
 from ml_model import get_database_url, bootstrap, suggest_runner
 
+
 ############################ Initialization ############################
 DB_URL = get_database_url()
 bootstrap()     # bootstrap the machine learning model
