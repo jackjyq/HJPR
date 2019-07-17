@@ -2,7 +2,7 @@
 
 ## Sample data
 
-[Sample data](./sample_data)
+[Sample data](../backend/hjprdump/sample_data)
 
 ## Interface of suggest function
 

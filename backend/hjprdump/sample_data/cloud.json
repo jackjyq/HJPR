@@ -1,0 +1,28 @@
+{
+    "keywords": [
+        {
+            "label": "Python",
+            "value": 0.3
+        },
+        {
+            "label": "Machine Learning",
+            "value": 0.4
+        },
+        {
+            "label": "C++",
+            "value": 0.2
+        },
+        {
+            "label": "C",
+            "value": 0.2
+        },
+        {
+            "label": "Accounts",
+            "value": 0.2
+        },
+        {
+            "label": "Statistics",
+            "value": 0.2
+        }
+    ]
+}

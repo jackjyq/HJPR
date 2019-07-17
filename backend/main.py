@@ -35,11 +35,18 @@ def get_error_message(messeage):
 # Get the cloud
 # Return the list of skills in all courses, 
 #   and the number of courses for each skill.
-#   {
-#       "analysis": 0.01,
-#       "modern geometric": 0.005,
-#       "python": 0.02
-#   }
+#       {
+#           "keywords": [
+#               {
+#                   "label": "Python",
+#                   "value": 0.3
+#               },
+#               {
+#                   "label": "Machine Learning",
+#                   "value": 0.4
+#               }
+#           ]
+#       }
 def get_cloud():
     if Statistic.objects(key="cloud"):
         data_json =  Statistic.objects(key="cloud")[0].data

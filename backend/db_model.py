@@ -98,6 +98,6 @@ def update_course_info(file):
 
 ############################ Main Function #############################
 if __name__ == "__main__":
-    # update_statistic(key="courses", file="./static/dump_database/courses.json")
+    # update_statistic(key="cloud", file="./hjprdump/sample_data/cloud.json")
     # update_course_info("./static/dump_database/course_info.json")
     pass

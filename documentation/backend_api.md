@@ -30,9 +30,16 @@ Return the list of skills in all courses, and the number of courses for each ski
 
 ```json
 {
-    "analysis": 0.01,
-    "modern geometric": 0.005,
-    "python": 0.02
+    "keywords": [
+        {
+            "label": "Python",
+            "value": 0.3
+        },
+        {
+            "label": "Machine Learning",
+            "value": 0.4
+        }
+    ]
 }
 ```
 
