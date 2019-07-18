@@ -20,3 +20,13 @@ Week4:-
 2) Cleaned the data to be used by the team and uploaded on google drive.
 3) Worked on undertanding the role of unsupervised learning to be used to summarize text and find important keywords from text.
 4) Discussed the comparison of BERT model and XLNet(a new approach for the model) in terms of NLP tasks we are planning to achieve.
+
+Week5:-
+1) Worked on RAKE Model to extract keywords from short course description
+2) Had a meeting with Jack and Rishabh about the JSON contract.
+3) Research done for the different models to find similarity between courses(BERT, Gensim , TFID etc)
+
+Week6:-
+1) Implemented the model to generate skills from the course description to be used for generating the word cloud
+2) Had a meeting with Ali about the UI
+3) Discussed the backend API with Rishabh and Jack and brainstormed on the format of the output at backend
