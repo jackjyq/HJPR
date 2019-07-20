@@ -9,4 +9,6 @@ We discussed our proposal with tutor. This week, I found an new, state-of-art mo
 Week5
 I still cannot train the model in colab. While it will be fine after I got the new computer. This week I implement the kNN algorithm, which can return the similar course to the input. Also, I write a bash shell, which is able to transfer all course description file to vector.
 Week6
-Done with the BERT model recommendation. The only thing that still need implement is fine-grain training and an auto-encoder to transfer vector list to a single vector. In this stage, I simply calculate the average. Besides, I wrote the function for recommendation course from user's open-ending questions.   
+Done with the BERT model recommendation. The only thing that still need implement is fine-grain training and an auto-encoder to transfer vector list to a single vector. In this stage, I simply calculate the average. Besides, I wrote the function for recommendation course from user's open-ending questions.  
+Week7
+I reorganize the code and connect the bert model to the backend. I also write the interface function for connect the backend and bert-kNN model. I find an issue that the dataset that we are using contains lots of error code and incomplete description, which will strongly reduce the quantities of both training and recommendation. Maybe we can just run the model in unsw cs course database. 
