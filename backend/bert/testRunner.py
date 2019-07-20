@@ -4,4 +4,4 @@ parameter = {
     "courses": [ "MOL4010", "MOL8013"],
     "questions": "Molecular and cell biology",
 }
-runner.suggest(parameter)
+print(runner.suggest(parameter))

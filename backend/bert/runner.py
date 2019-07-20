@@ -28,19 +28,19 @@ def suggest(user_preference, weight = 0.5):
         #user input description
     avgSimularCourse = np.mean(courseVecList, axis=0)
     userDescription = user_preference["questions"]
-    #userVector = prediction.userDescriptionToVector(userDescription)
-    #avgGeneral = np.mean([weight * userVector, (1-weight) * avgSimularCourse], axis = 0)
+    userVector = prediction.userDescriptionToVector(userDescription)
+    avgGeneral = np.mean([weight * userVector, (1-weight) * avgSimularCourse], axis = 0)
     avgGeneral = avgSimularCourse
     
-    anskNN = prediction.kNN(avgGeneral, dataSet, labels, 10, inputCourseLabels)
+    anskNN = prediction.kNN(avgGeneral, dataSet, labels, 5, inputCourseLabels)
     retDir = {}
     courseList = []
     for course in anskNN:
         courseDir = {}
-        courseDir["label"] = ""
-        courseDir["value"] = ""
+        courseDir["label"] = course[0]
+        courseDir["value"] = course[1]
         courseDir["desc"] = "please load the description from database in other module - load the description in every model will course redundant of code"
-        
-        print(course)
+        courseList.append(courseDir)
+        #print(course)
     retDir["courses"] = courseList
     return 0 , retDir
