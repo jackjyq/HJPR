@@ -24,3 +24,17 @@
     "similarCourses" :["TSMA2004", "TSMA4100", "AUT2201"]
 }
 
+3) courseNames.txt:- Includes names of all Courses
+ Includes JSON format as there in HJPR Backend API Documentation-
+ In the following format
+ {
+    "courses": [ "TSMA2004", "TSMA4100", "AUT2201"]
+}
+
+4) skills.txt:- Includes all skills from all courses
+Includes JSON format as there in HJPR Backend API Documentation-
+ In the following format
+ {
+    "skills": [ "Python", "analysis", "modern geometric"]
+}
+
