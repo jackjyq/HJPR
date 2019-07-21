@@ -1,0 +1,26 @@
+1) outputSkills.txt:- Includes Response to Get The Cloud
+   Includes JSON format as there in HJPR Backend API Documentation-
+   In the following format
+   {
+    "keywords": [
+        {
+            "label": "Python",
+            "value": 0.3
+        },
+        {
+            "label": "Machine Learning",
+            "value": 0.4
+        }
+    ]
+   }
+   
+ 2) courses.txt:- Includes information on Courses
+ Includes JSON format as there in HJPR Backend API Documentation-
+ In the following format
+ {
+    "courseCode": "course code",
+    "skills": [ "analysis", "python", "problem solving"],
+    "courseDesc": "course description",
+    "similarCourses" :["TSMA2004", "TSMA4100", "AUT2201"]
+}
+
