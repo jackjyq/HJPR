@@ -149,9 +149,7 @@ return the skills and similar courses which should be sorted in descending order
     "courseCode": "course code",
     "skills": [ "analysis", "python", "problem solving"],
     "courseDesc": "course description",
-    "similarCourses" :["TSMA2004", "TSMA4100", "AUT2201"],
-    "courseUrl": "http://the home page of that course"
-
+    "similarCourses" :["TSMA2004", "TSMA4100", "AUT2201"]
 }
 ```
 
