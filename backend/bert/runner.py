@@ -31,7 +31,7 @@ def suggest(user_preference, weight = 0.5):
     avgSimularCourse = np.mean(courseVecList, axis=0)
     userDescription = user_preference["questions"]
     userVector = prediction.userDescriptionToVector(userDescription)
-    avgGeneral = np.mean([weight * userVector, (1-weight) * avgSimularCourse], axis = 0)
+    avgGeneral = np.mean([userVector, avgSimularCourse], axis = 0)
     avgGeneral = avgSimularCourse
     
     anskNN = prediction.kNN(avgGeneral, dataSet, labels, 5, inputCourseLabels)

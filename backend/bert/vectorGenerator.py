@@ -2,7 +2,7 @@ import os
 import numpy as np
 import json
 import re
-bert_dir = "bert/"
+bert_dir = "bert/bert/"
 
 cmd1 = "python "+bert_dir + "extract_features.py  --input_file="
 cmd2 = "   --output_file="
