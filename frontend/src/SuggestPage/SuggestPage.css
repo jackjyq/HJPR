@@ -13,6 +13,7 @@
     flex-direction: unset;
 }
 .user-preference {
+    height: 100vh;
     background: none;
 }
 .questions-inputs input {
@@ -36,4 +37,15 @@
     border-radius: 0;
     padding: 20px 35px;
     font-weight: bold;
+}
+
+.form-required {
+    color: #dc3545;
+    font-size: 1rem;
+    vertical-align: super;
+}
+.lead > span {
+    font-size: 0.75rem;
+    display: block;
+    text-align: right;
 }

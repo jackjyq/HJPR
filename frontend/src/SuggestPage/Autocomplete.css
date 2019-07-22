@@ -1,0 +1,16 @@
+.autocomplete-input {
+    width: 100%;
+    position: relative;
+}
+
+.autocomplete-unordered {
+    list-style-type: none;
+    max-height: 150px;
+    overflow: auto;
+    padding-left: 10px;
+    border: 1px solid black;
+    position: absolute;
+    z-index: 50;
+    background: white;
+    width: 100%;
+}
