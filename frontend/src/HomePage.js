@@ -5,7 +5,8 @@ import logo from "./logo.svg";
 // import UserPreference from "./UserPreference"
 // import WordCloud from "react-d3-cloud";
 import TagCloud from "react-tag-cloud";
-import keyWords from "./keywords.json";
+// import keyWords from "./keywords.json";
+// import SuggestPage from "./SuggestPage/SuggestPage";
 
 class HomePage extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class HomePage extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleWordCloudClick = this.handleWordCloudClick.bind(this);
         this.state = {
-            data: keyWords
+            data: null
         };
     }
 
@@ -26,41 +27,33 @@ class HomePage extends Component {
     handleWordCloudClick(e) {
         alert(e.target.innerHTML);
     }
+    renderData() {
+        fetch("./api/cloud").then(response => {
+            response.json().then(data => {
+                console.log(data);
+                this.setState({
+                    data: data
+                });
+            });
+        });
+    }
+    componentWillMount() {
+        this.renderData();
+    }
     componentDidMount() {
         setInterval(() => {
             this.forceUpdate();
-        }, 3000);
+        }, 6000);
     }
 
     render() {
-        let tt = this.state.data.keywords.map((val, i) => {
-            // console.log(val);
-            return (
-                <div
-                    style={{ fontSize: 20 }}
-                    key={i}
-                    onClick={this.handleWordCloudClick}
-                >
-                    {val}
-                </div>
-            );
-        });
-        console.log(tt);
         return (
             <Container fluid={true} className="homepage-container">
                 <Row className="homepage-row">
-                    <Col
-                        sm="1"
-                        md="4"
-                        className="show-border homepage-logo-col"
-                    >
+                    <Col xs="4" sm="4" className=" homepage-logo-col">
                         <img src={logo} className="homepage-logo" alt="logo" />
                     </Col>
-                    <Col
-                        sm="1"
-                        md="8"
-                        className="show-border homepage-detail-col"
-                    >
+                    <Col xs="8" sm="8" className=" homepage-detail-col">
                         <div className="homepage-detail">
                             <svg
                                 width="200"
@@ -106,24 +99,25 @@ class HomePage extends Component {
                                     stroke="#60856b"
                                 /> */}
                             </svg>
-                            <Row>
-                                <Col className="homepage-find-courses">
-                                    Find the right courses for you.
-                                </Col>
-                            </Row>
-                            <Row>
-                                {/* <Col> */}
-                                <Button
-                                    // color="primary"
-                                    className="homepage-button"
-                                    onClick={this.handleClick}
-                                >
-                                    Get Started
-                                </Button>
-                                {/* </Col> */}
-                            </Row>
-                            <div className="homepage-detail-word-cloud">
-                                {/* <WordCloud
+                            {/* <Row> */}
+                            <div className="homepage-find-courses">
+                                Find the right courses for you.
+                            </div>
+                            {/* </Row> */}
+                            {/* <Row>
+                                <Col> */}
+                            <Button
+                                // color="primary"
+                                className="homepage-button"
+                                onClick={this.handleClick}
+                            >
+                                Get Started
+                            </Button>
+                            {/* </Col>
+                            </Row> */}
+                            {this.state.data && (
+                                <div className="homepage-detail-word-cloud">
+                                    {/* <WordCloud
                                     data={this.state.data}
                                     fontSizeMapper={this.state.fontSizeMapper}
                                     // rotate={this.state.rotate}
@@ -131,22 +125,38 @@ class HomePage extends Component {
                                     height={400}
                                     font={"Monospace"}
                                 /> */}
-                                <TagCloud
-                                    style={{
-                                        fontFamily: "sans-serif",
-                                        fontSize: 10,
-                                        fontWeight: "bold",
-                                        fontStyle: "italic",
-                                        color: "#000",
-                                        padding: 2,
-                                        width: "100%",
-                                        height: "50%"
-                                    }}
-                                >
-                                    {tt}
-                                </TagCloud>
-                            </div>
-
+                                    <TagCloud
+                                        style={{
+                                            fontFamily: "sans-serif",
+                                            fontSize: 10,
+                                            fontWeight: "bold",
+                                            fontStyle: "italic",
+                                            color: "#000",
+                                            padding: 2,
+                                            width: "100%",
+                                            height: "50%"
+                                        }}
+                                    >
+                                        {this.state.data.keywords.map(
+                                            (val, i) => {
+                                                // console.log(val);
+                                                return (
+                                                    <div
+                                                        style={{ fontSize: 20 }}
+                                                        key={i}
+                                                        onClick={
+                                                            this
+                                                                .handleWordCloudClick
+                                                        }
+                                                    >
+                                                        {val.label}
+                                                    </div>
+                                                );
+                                            }
+                                        )}
+                                    </TagCloud>
+                                </div>
+                            )}
                             {/* <svg
                                 width="200"
                                 height="200"
@@ -170,7 +180,6 @@ class HomePage extends Component {
                                     strokeWidth="2"
                                     stroke="#60856b"
                                 /> */}
-
                             {/* <rect
                                     // id="a"
                                     // x="14"
@@ -195,6 +204,7 @@ class HomePage extends Component {
                     </Col>
                 </Row>
             </Container>
+            // <SuggestPage />
         );
     }
 }

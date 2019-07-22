@@ -35,3 +35,9 @@ Week 6
 1. Had a meeting with Ali about the UI.
 2. Implemented changes in words as suggested by Ali.
 3. Added the header and footer as suggested by Ali.
+
+Week 7
+1. Worked on integrating the backend with the front end
+2. Implemented Routers
+3. Implemented the Autocomplete component
+4. Worked on the styling

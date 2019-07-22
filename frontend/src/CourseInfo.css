@@ -1,6 +1,6 @@
 .course-info {
     text-align: left;
-    height: calc(100% - 100px);
+    height: calc(100% - 50px);
 }
 
 .course-info .row:first-child {
