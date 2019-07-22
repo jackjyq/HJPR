@@ -7,5 +7,5 @@
 
 # config the machine learning model
 #ML_MODEL = "hjprdump"
-ML_MODEL = "bert"
-# ML_MODEL = "rakegensim"
+# ML_MODEL = "bert"
+ML_MODEL = "rakegensim"

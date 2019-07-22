@@ -21,7 +21,7 @@ def get_database_url():
     elif (ML_MODEL == "bert"):
         database_url = "mongodb://admin:comp9900@ds048719.mlab.com:48719/hjprdump"
     elif (ML_MODEL == "rakegensim"):
-        database_url = ""
+        database_url = "mongodb://admin:comp9900@ds052837.mlab.com:52837/rakegensim"
     else:
         raise Exception("model not supported!")
     return database_url
