@@ -1,6 +1,7 @@
 import numpy as np
 import re
-import vectorGenerator
+#import vectorGenerator
+from . import vectorGenerator
 import operator
 def userDescriptionToVector(courseDescription, outputDir = "vectorOutput/"):
     #makeDir

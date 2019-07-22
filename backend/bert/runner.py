@@ -1,6 +1,8 @@
 import numpy as np
-import prediction 
-import dataLoader
+from . import prediction  as prediction
+from . import dataLoader as dataLoader
+#import prediction 
+#import dataLoader
 value = {
         "courses": [
             {

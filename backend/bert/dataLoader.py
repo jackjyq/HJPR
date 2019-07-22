@@ -1,6 +1,12 @@
 import numpy as np
-import prediction as p
+from . import prediction as p
+import os
+#import prediction as p
 def loadData(path):
+
+    BASE_DIR = os.path.dirname(__file__) 
+    path = BASE_DIR.replace("\\", "/") + "/"+ path
+    print(path)
     labelName = "label.txt"
     vecName = "vecArray.npy"
     labels = []
