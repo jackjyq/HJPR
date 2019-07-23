@@ -5,8 +5,9 @@
 #   this file implements database related class and functions
 from mongoengine import connect, StringField, Document
 from flask import json
-from ml_model import get_database_url
 
+
+DB_URL = "mongodb://admin:comp9900@ds048719.mlab.com:48719/hjprdump"
 ##################### Database Model Defination ########################
 class Statistic(Document):
 # {

@@ -8,14 +8,11 @@ from flask import Flask, json, jsonify, render_template, request
 from flask_cors import CORS
 from mongoengine import connect, StringField, Document
 
-from config import ML_MODEL
-from db_model import Statistic, Course_Info
-from ml_model import get_database_url, bootstrap, suggest_runner
-
+from db_model import Statistic, Course_Info, DB_URL
+from hjprdump.runner import suggest as rakegensim_suggest
+from bert.runner import suggest as bert_suggest
 
 ############################ Initialization ############################
-DB_URL = get_database_url()
-bootstrap()     # bootstrap the machine learning model
 app = Flask(__name__)
 CORS(app)
 
@@ -84,7 +81,7 @@ def get_courses():
 
 
 
-@app.route('/api/suggest/', methods = ["POST"])
+@app.route('/api/suggest/<model>/', methods = ["POST"])
 # Get the suggested courses
 # Send
 #   {
@@ -111,11 +108,11 @@ def get_courses():
 #   {
 #       "errorMsg": "whatever error messeage specified by backend"
 #   }
-def get_suggest():
+def get_suggest(model):
     data_json = request.data
     data_dict = json.loads(data_json)
     print(data_dict)
-    status, value = suggest_runner(data_dict)
+    status, value = bert_suggest(data_dict, model)
     if (status == 0):
         return jsonify(value), 200
     else:
