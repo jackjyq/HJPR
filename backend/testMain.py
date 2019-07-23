@@ -4,6 +4,6 @@ data_dict = {"skills": [ "analysis", "python", "problem solving"], "courses": [ 
 parameter = {
     "skills": [ "analysis", "python", "problem solving"],
     "courses": [ "MOL4010", "MOL8013"],
-    "questions": "Molecular and cell biology",
+    "questions": "Molecular and cell biology"
 }
 print (bert_suggest(parameter))
