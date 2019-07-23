@@ -39,9 +39,13 @@ class App extends Component {
         state["courses"] = data;
         this.setState(state);
       });
-      fetch(base + '/api/suggest/',
+      fetch(base + '/api/suggest/bert/',
           {method: 'POST',
-           body: ""
+           body: JSON.stringify({
+            "skills": [ "analysis", "python", "problem solving"],
+            "courses": [ "COMP1000", "COMP9321"],
+            "questions": "Molecular and cell biology"
+        })
           })
       .then(response => response.json())
       .then(data => {

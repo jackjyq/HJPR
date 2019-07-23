@@ -106,12 +106,12 @@ return a list of recommended courses sorted according to the relevance in descen
 {
     "courses": [
         {
-            "label": "MA3402",
+            "label": "COMP1000",
             "value": 0.7,
             "desc": "desc"
         },
         {
-            "label": "MUSP4145",
+            "label": "COMP1511",
             "value": 0.2,
             "desc": "desc"
         }
