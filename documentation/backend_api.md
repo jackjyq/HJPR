@@ -85,7 +85,8 @@ return the list of all courses
 
 # Get the suggested courses
 
-- URL: @url/api/suggest
+- URL: @url/api/suggest/bert
+- URL: @url/api/suggest/rakegensim
 - Method: POST
 ```json
 {
