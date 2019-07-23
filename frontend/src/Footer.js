@@ -5,8 +5,8 @@ class Footer extends Component {
     render() {
         return (
             <div className="footer">
-                <a href="https://webcms3.cse.unsw.edu.au/COMP9900/19T2/groups/18482">
-                    HJPR Development Team
+                <a href="https://unsw-cse-comp3900-9900.github.io/capstone-project-hjpr/">
+                    Documentation
                 </a>
             </div>
         );

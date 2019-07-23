@@ -12,19 +12,25 @@ class CourseInfo extends Component {
         };
         // console.log(this.state.courseId);
     }
-    renderData() {
-        fetch("./api/course/TSMA2004/").then(response => {
-            response.json().then(data => {
-                console.log(data);
-                this.setState({
-                    data: data,
-                    courseId: data.courseCode
-                });
-            });
+    // renderData() {
+    //     fetch("./api/course/TSMA2004/").then(response => {
+    //         response.json().then(data => {
+    //             console.log(data);
+    //             this.setState({
+    //                 data: data,
+    //                 courseId: data.courseCode
+    //             });
+    //         });
+    //     });
+    // }
+    async componentDidMount() {
+        // this.renderData();
+        const response = await fetch("../api/course/TSMA2004/");
+        const data = await response.json();
+        this.setState({
+            data: data,
+            courseId: data.courseCode
         });
-    }
-    componentDidMount() {
-        this.renderData();
     }
     render() {
         console.log(this.props.match.params.courseId);

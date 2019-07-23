@@ -25,6 +25,7 @@ class App extends Component {
                             component={RecommendedCoursesPage}
                         />
                         <Route
+                            exact
                             path="/courses/:courseId"
                             component={CourseInfo}
                         />

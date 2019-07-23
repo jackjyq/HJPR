@@ -3,7 +3,7 @@ import "./RecommendedCoursesPage.css";
 import DonutChart from "react-donut-chart";
 import { Container, Row, Col, Card, CardTitle } from "reactstrap";
 // import recommendedCourses from "./recommendedCourses.json";
-
+import { Link } from "react-router-dom";
 class RecommendedCoursesPage extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +17,7 @@ class RecommendedCoursesPage extends Component {
         this.handleHoverDonut = this.handleHoverDonut.bind(this);
     }
     renderData() {
-        fetch("https://api.myjson.com/bins/6b5kl").then(response => {
+        fetch("./api/suggest/bert/").then(response => {
             response.json().then(data => {
                 let courseArray = data.courses;
                 let allCourses = {};
@@ -78,13 +78,13 @@ class RecommendedCoursesPage extends Component {
                                             className="course-card"
                                         >
                                             <CardTitle>{val.label}</CardTitle>
-                                            <a
-                                                href={courseURL + val.label}
+                                            <Link
+                                                to={"courses/" + val.label}
                                                 target="_blank"
                                                 className="course-link"
                                             >
                                                 Know More
-                                            </a>
+                                            </Link>
                                         </Card>
                                     </Col>
                                 );

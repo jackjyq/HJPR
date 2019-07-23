@@ -71,7 +71,7 @@ class SuggestPage extends React.Component {
             });
         } else {
             // const movie = { title, rating };
-            const response = await fetch("./api/suggest/", {
+            const response = await fetch("./api/suggest/bert/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -79,11 +79,14 @@ class SuggestPage extends React.Component {
                 body: JSON.stringify({
                     skills: this.state.skills,
                     courses: this.state.courses,
-                    question: this.myRef.current.value
+                    questions: this.myRef.current.value
                 })
             });
             if (response.ok) {
                 console.log("response worked!");
+                // localStorage.setItem("skills", this.state.skills);
+                // localStorage.setItem("courses", this.state.courses);
+                // localStorage.setItem("questions", this.state.questions);
                 window.location.href = "/suggest";
             }
         }
