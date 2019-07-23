@@ -3,20 +3,6 @@ from . import prediction  as prediction
 from . import dataLoader as dataLoader
 #import prediction 
 #import dataLoader
-value = {
-        "courses": [
-            {
-                "label": "MA3402",
-                "value": 0.7,
-                "desc": "desc"
-            },
-            {
-                "label": "MUSP4145",
-                "value": 0.2,
-                "desc": "desc"
-            }
-            ]
-        }
 dataSet, labels, description = dataLoader.loadData("vectorOutput/vectFile/")
 def suggest(user_preference, weight = 0.5):
     courseVecList = []
