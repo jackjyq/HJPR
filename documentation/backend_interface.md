@@ -2,7 +2,7 @@
 
 ## Sample data
 
-[Sample data](../backend/hjprdump/sample_data)
+[Sample data](https://github.com/unsw-cse-comp3900-9900/capstone-project-hjpr/tree/master/backend/hjprdump/sample_data)
 
 ## Interface of suggest function
 

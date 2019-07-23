@@ -101,5 +101,6 @@ def update_course_info(file):
 if __name__ == "__main__":
     # update_statistic(key="cloud", file="./hjprdump/sample_data/cloud.json")
     # update_statistic(key="skills", file="./rakegensim/json_data/skills.json")
+    # update_statistic(key="skills", file="./rakegensim/json_data/courses.json")
     # update_course_info("./hjprdump/sample_data/course_info.json")
     pass

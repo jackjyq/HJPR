@@ -112,7 +112,12 @@ def get_suggest(model):
     data_json = request.data
     data_dict = json.loads(data_json)
     print(data_dict)
-    status, value = bert_suggest(data_dict, model)
+    if (model == "bert"):
+        status, value = bert_suggest(data_dict)
+    elif (model == "rakegensim"):
+        status, value = rakegensim_suggest(data_dict)
+    else:
+        return get_error_message("Not Found"), 404
     if (status == 0):
         return jsonify(value), 200
     else:

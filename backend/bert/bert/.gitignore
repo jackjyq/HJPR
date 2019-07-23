@@ -2,6 +2,7 @@
 
 # ignore pretrained model --- Added by Jack Jiang
 /bert_model.ckpt.data-00000-of-00001
+/vectorOutput
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

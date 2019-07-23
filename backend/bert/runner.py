@@ -17,7 +17,7 @@ value = {
             }
             ]
         }
-dataSet, labels = dataLoader.loadData("vectorOutput/vectFile/")
+dataSet, labels, description = dataLoader.loadData("vectorOutput/vectFile/")
 def suggest(user_preference, weight = 0.5):
     courseVecList = []
     inputCourseLabels = []
@@ -41,7 +41,7 @@ def suggest(user_preference, weight = 0.5):
         courseDir = {}
         courseDir["label"] = course[0]
         courseDir["value"] = course[1]
-        courseDir["desc"] = "please load the description from database in other module - load the description in every model will course redundant of code"
+        courseDir["desc"] = description[course[0]]
         courseList.append(courseDir)
         #print(course)
     retDir["courses"] = courseList
