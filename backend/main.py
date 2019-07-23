@@ -84,8 +84,7 @@ def get_courses():
 
 
 
-#@app.route('/api/suggest/', methods = ["POST"])
-@app.route('/api/suggest/', methods = ["GET"])
+@app.route('/api/suggest/', methods = ["POST"])
 # Get the suggested courses
 # Send
 #   {
@@ -113,9 +112,9 @@ def get_courses():
 #       "errorMsg": "whatever error messeage specified by backend"
 #   }
 def get_suggest():
-    #data_json = request.data
-    #data_dict = json.loads(data_json)
-    data_dict = {"skills": [ "analysis", "python", "problem solving"], "courses": [ "TSMA2004","TSMA4100", "AUT2201"],"questions": "I like python"}
+    data_json = request.data
+    data_dict = json.loads(data_json)
+    print(data_dict)
     status, value = suggest_runner(data_dict)
     if (status == 0):
         return jsonify(value), 200
