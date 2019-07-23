@@ -4,7 +4,7 @@
 
 [http://localhost:5000](http://localhost:5000)
 
-# Error Messeage
+# Error Message
 
 if there is some error from the backend, e.g. database could not be connected, then return the following
 
@@ -91,8 +91,8 @@ return the list of all courses
 ```json
 {
     "skills": [ "analysis", "python", "problem solving"],
-    "courses": [ "TSMA2004", "TSMA4100", "AUT2201"],
-    "questions": "I like python"
+    "courses": [ "COMP1000", "COMP1511"],
+    "questions": "Molecular and cell biology"
 }
 ```
 
