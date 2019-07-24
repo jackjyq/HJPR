@@ -97,8 +97,8 @@ def update_course_info(file):
 
 ############################ Main Function #############################
 if __name__ == "__main__":
-    # update_statistic(key="cloud", file="./rakegensim/unsw_json/cloud.json")
-    # update_statistic(key="skills", file="./rakegensim/unsw_json/skills.json")
-    # update_statistic(key="skills", file="./rakegensim/unsw_json/courses.json")
-    update_course_info("./rakegensim/unsw_json/course_info.json")
-    pass
+    data_path = "./rakegensim/unsw_json/"
+    # update_statistic(key="cloud", file=data_path + "cloud.json")
+    # update_statistic(key="skills", file=data_path + "skills.json")
+    # update_statistic(key="courses", file=data_path + "courses.json")
+    # update_course_info(data_path + "course_info.json")
