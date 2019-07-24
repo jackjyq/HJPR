@@ -27,3 +27,8 @@ Week 6
 1. create a dump backend to test the API
 2. create a dump frontend to test the API
 3. write the documentation for backend and frontend
+
+Week 7
+1. connect to bert model
+2. connect to rakegensim model
+3. Add a new API to selected the underline models
