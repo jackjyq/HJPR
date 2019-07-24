@@ -3,7 +3,13 @@ from nltk.tokenize import word_tokenize
 import csv
 import json
 
-def suggest(skills, courses, questions):
+def suggest(user_preference):
+    try:
+        skills = user_preference["skills"]
+        courses = user_preference["courses"]
+        questions = user_preference["questions"]
+    except KeyError:
+        return 2, "bad input"
     if(len(skills)==0):
         value="Error"
         return 1,value
@@ -16,9 +22,9 @@ def suggest(skills, courses, questions):
         userInfoTotal=userInfo+userInfoMore
     else:
         userInfoTotal=userInfo
-    model=gensim.similarities.Similarity.load("ModelSims")
-    tf_idf=gensim.similarities.Similarity.load("tf_idfModel")
-    dictCollection=gensim.similarities.Similarity.load("dictCollectionModel")
+    model=gensim.similarities.Similarity.load("./rakegensim/unsw_json/ModelSims")
+    tf_idf=gensim.similarities.Similarity.load("./rakegensim/unsw_json/tf_idfModel")
+    dictCollection=gensim.similarities.Similarity.load("./rakegensim/unsw_json/dictCollectionModel")
     query=[l.lower() for l in word_tokenize(userInfoTotal)]
     query_doc_bow = dictCollection.doc2bow(query)
     query_doc_tf_idf = tf_idf[query_doc_bow]
@@ -31,7 +37,7 @@ def suggest(skills, courses, questions):
 
     courseInfo={}
     dictCourseInfo={}
-    with open('CourseDataCleaned-2.csv', 'r') as readFile:
+    with open('./rakegensim/unsw_json/CourseDataCleaned-2.csv', 'r') as readFile:
         k=0
         while (1):
             line = readFile.readline()

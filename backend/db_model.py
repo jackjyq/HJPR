@@ -64,8 +64,7 @@ class Course_Info(Document):
 ####################### Other Helper functions #########################
 def update_statistic(key, file):
     # key can be cloud, skills, courses
-    database_url = get_database_url()
-    db_client = connect(host=database_url)
+    db_client = connect(host=DB_URL)
     with open(file) as data_file:
         data_dict = json.load(data_file)
     data_json = json.dumps(data_dict)
@@ -80,8 +79,7 @@ def update_statistic(key, file):
 
 
 def update_course_info(file):
-    database_url = get_database_url()
-    db_client = connect(host=database_url)
+    db_client = connect(host=DB_URL)
     with open(file) as all_data_file:
         all_data_dict = json.load(all_data_file)
     for code, data_dict in all_data_dict.items():
@@ -99,8 +97,8 @@ def update_course_info(file):
 
 ############################ Main Function #############################
 if __name__ == "__main__":
-    # update_statistic(key="cloud", file="./hjprdump/sample_data/cloud.json")
-    # update_statistic(key="skills", file="./rakegensim/json_data/skills.json")
-    # update_statistic(key="skills", file="./rakegensim/json_data/courses.json")
-    # update_course_info("./hjprdump/sample_data/course_info.json")
+    # update_statistic(key="cloud", file="./rakegensim/unsw_json/cloud.json")
+    # update_statistic(key="skills", file="./rakegensim/unsw_json/skills.json")
+    # update_statistic(key="skills", file="./rakegensim/unsw_json/courses.json")
+    update_course_info("./rakegensim/unsw_json/course_info.json")
     pass

@@ -9,7 +9,7 @@ from flask_cors import CORS
 from mongoengine import connect, StringField, Document
 
 from db_model import Statistic, Course_Info, DB_URL
-from hjprdump.runner import suggest as rakegensim_suggest
+from rakegensim.unsw_json.runner import suggest as rakegensim_suggest
 from bert.runner import suggest as bert_suggest
 
 ############################ Initialization ############################
