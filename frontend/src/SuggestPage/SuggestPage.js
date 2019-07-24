@@ -4,21 +4,18 @@ import {
     Button,
     Col,
     InputGroup,
-    InputGroupAddon,
     Input,
-    Jumbotron,
     ListGroup,
-    Row,
     Container,
     Modal,
     ModalBody,
     Form,
     FormGroup,
     Label,
-    ModalFooter
+    ModalFooter,
+    Spinner
 } from "reactstrap";
 import ShowList from "./ShowList";
-import CourseList from "../CourseList/CourseList";
 import "./SuggestPage.css";
 import Autocomplete from "./Autocomplete";
 
@@ -38,13 +35,17 @@ class SuggestPage extends React.Component {
             question: [],
             showCourseList: false,
             modal: false,
-            modalMessage: "Looks like you've already added this item."
+            modalMessage: "Looks like you've already added this item.",
+            fetching: false,
+            selectedOption: "bert"
         };
         this.getData = this.getData.bind(this);
         this.handleDiscard = this.handleDiscard.bind(this);
         this.myRef = React.createRef();
         this.toggle = this.toggle.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleRadioChange = this.handleRadioChange.bind(this);
+        this.getDataCourses = this.getDataCourses.bind(this);
     }
     handleDiscard() {
         this.setState({
@@ -56,6 +57,11 @@ class SuggestPage extends React.Component {
             showCourseList: false
         });
         this.myRef.current.value = "";
+    }
+    handleRadioChange(evt) {
+        this.setState({
+            selectedOption: evt.target.value
+        });
     }
     toggle() {
         this.setState(prevstate => ({
@@ -70,20 +76,29 @@ class SuggestPage extends React.Component {
                 modalMessage: "Please fill in the required fields"
             });
         } else {
-            // const movie = { title, rating };
-            const response = await fetch("./api/suggest/bert/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    skills: this.state.skills,
-                    courses: this.state.courses,
-                    questions: this.myRef.current.value
-                })
+            this.setState({
+                fetching: true
             });
+            // const movie = { title, rating };
+            const response = await fetch(
+                `./api/suggest/${this.state.selectedOption}/`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        skills: this.state.skills,
+                        courses: this.state.courses,
+                        questions: this.myRef.current.value
+                    })
+                }
+            );
             if (response.ok) {
                 console.log("response worked!");
+                response.text().then(text => {
+                    localStorage.setItem("data", text);
+                });
                 // localStorage.setItem("skills", this.state.skills);
                 // localStorage.setItem("courses", this.state.courses);
                 // localStorage.setItem("questions", this.state.questions);
@@ -134,6 +149,19 @@ class SuggestPage extends React.Component {
         }
         console.log(this.state);
     }
+    getDataCourses(val) {
+        const courses = this.state.courses;
+        if (!courses.includes(val)) {
+            courses.unshift(val);
+            this.setState({ courses: courses, course: "" });
+        } else {
+            this.setState({
+                modal: true,
+                modalMessage: "Looks like you've already added this item."
+            });
+        }
+        console.log(this.state);
+    }
 
     handleClick(e) {
         const id = e.target.id;
@@ -171,9 +199,6 @@ class SuggestPage extends React.Component {
     }
 
     render() {
-        const skill = this.state.skill;
-        const course = this.state.course;
-        const showCourseList = this.state.showCourseList;
         return (
             <Container className="user-preference">
                 <h1 className="display-3">
@@ -211,6 +236,7 @@ class SuggestPage extends React.Component {
                                     placeholderAuto="Python"
                                     onChange={this.handleChange}
                                     sendData={this.getData}
+                                    callingAPI="skills"
                                     // id="autocomplete"
                                 />
                                 {/* <InputGroupAddon addonType="append">
@@ -244,13 +270,22 @@ class SuggestPage extends React.Component {
                         {/* </Col> */}
                         <Col sm="8">
                             <InputGroup className="questions-inputs">
-                                <Input
+                                <Autocomplete
+                                    // value={skill}
+                                    compID="courseInput"
+                                    placeholderAuto="COMP1000"
+                                    onChange={this.handleChange}
+                                    sendData={this.getDataCourses}
+                                    callingAPI="courses"
+                                    // id="autocomplete"
+                                />
+                                {/* <Input
                                     value={course}
                                     id="courseInput"
                                     placeholder="MA3402"
                                     onChange={this.handleChange}
-                                />
-                                <InputGroupAddon addonType="append">
+                                /> */}
+                                {/* <InputGroupAddon addonType="append">
                                     <Button
                                         color="primary"
                                         id="addCourse"
@@ -258,7 +293,7 @@ class SuggestPage extends React.Component {
                                     >
                                         Add
                                     </Button>
-                                </InputGroupAddon>
+                                </InputGroupAddon> */}
                             </InputGroup>
                             <ListGroup className="list-additions">
                                 <ShowList
@@ -288,6 +323,46 @@ class SuggestPage extends React.Component {
                             />
                         </Col>
                     </FormGroup>
+                    <FormGroup tag="fieldset" className="user-input-radio">
+                        <legend>Select the model</legend>
+                        <FormGroup check>
+                            <Label check>
+                                <Input
+                                    type="radio"
+                                    value="bert"
+                                    name="radio1"
+                                    onChange={this.handleRadioChange}
+                                    checked={
+                                        this.state.selectedOption === "bert"
+                                    }
+                                />{" "}
+                                Submit using Bert Model
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check>
+                                <Input
+                                    type="radio"
+                                    value="rakegensim"
+                                    onChange={this.handleRadioChange}
+                                    name="radio1"
+                                    checked={
+                                        this.state.selectedOption ===
+                                        "rakegensim"
+                                    }
+                                />{" "}
+                                Submit using RakeGensim Model
+                            </Label>
+                        </FormGroup>
+                    </FormGroup>
+                    {this.state.fetching && (
+                        <Spinner
+                            style={{ width: "4rem", height: "4rem" }}
+                            color="primary"
+                            type="grow"
+                        />
+                    )}
+
                     {/* <p className="lead" /> */}
                     <p className="lead">
                         <Button

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./CourseInfo.css";
-import { Container, Row, Col, Button, Card, CardTitle } from "reactstrap";
+import { Container, Row, Col, Card, CardTitle } from "reactstrap";
 // import CourseInfoData from "./CourseInfo.json";
 
 class CourseInfo extends Component {
@@ -25,7 +25,10 @@ class CourseInfo extends Component {
     // }
     async componentDidMount() {
         // this.renderData();
-        const response = await fetch("../api/course/TSMA2004/");
+        const response = await fetch(
+            `../api/course/${this.props.match.params.courseId}/`
+        );
+
         const data = await response.json();
         this.setState({
             data: data,
@@ -65,18 +68,18 @@ class CourseInfo extends Component {
                         </Col>
                         <Col md={9} className="course-info-desc">
                             {this.state.data.courseDesc
-                                .replace(/[0-9]./g, "<\n>$& ")
+                                // .replace('"', "")
                                 .split("<\n>")
                                 .map((i, key) => {
                                     return <div key={key}>{i}</div>;
                                 })}
                             <Row md={12}>
                                 <a
-                                    href={
-                                        "https://www.ntnu.edu/studies/courses/" +
-                                        `${this.state.data.courseCode}`
-                                    }
+                                    href={`http://www.cse.unsw.edu.au/~cs${this.state.data.courseCode.match(
+                                        /\d+/g
+                                    )}`}
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     className="course-info-url"
                                 >
                                     See more Details
@@ -88,15 +91,18 @@ class CourseInfo extends Component {
                             <Row className="course-info-related-courses">
                                 {this.state.data.similarCourses.map(
                                     (val, i) => {
-                                        let courseCode =
-                                            "https://www.ntnu.edu/studies/courses/";
+                                        // let courseCode =
+                                        //     "https://www.cse.unsw.edu.au/~";
                                         return (
                                             <Col md={4} key={i}>
                                                 <Card>
                                                     <CardTitle>{val}</CardTitle>
                                                     <a
-                                                        href={courseCode + val}
+                                                        href={`http://www.cse.unsw.edu.au/~cs${val.match(
+                                                            /\d+/g
+                                                        )}`}
                                                         target="_blank"
+                                                        rel="noopener noreferrer"
                                                     >
                                                         Course Homepage
                                                     </a>

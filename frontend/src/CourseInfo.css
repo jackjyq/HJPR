@@ -1,12 +1,13 @@
 .course-info {
     text-align: left;
-    height: calc(100% - 50px);
+    /* height: calc(100% - 50px); */
 }
 
 .course-info .row:first-child {
     height: 100%;
     align-items: center;
     justify-content: center;
+    background-color: cornflowerblue;
 }
 
 .course-info-code {
@@ -14,17 +15,17 @@
     font-size: 3em;
     font-weight: bolder;
     /* margin: 20px 0; */
-    background-color: cornflowerblue;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 10px dashed white;
     color: white;
 }
 
 .course-info-desc {
+    border-left: 10px dashed cornflowerblue;
     padding: 20px 40px;
+    background: white;
 }
 
 .course-info-desc div {

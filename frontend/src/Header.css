@@ -7,3 +7,11 @@
     color: white;
     font-size: 2rem;
 }
+.header a {
+    text-decoration: none;
+    color: white;
+}
+
+.header a:hover {
+    color: white;
+}

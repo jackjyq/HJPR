@@ -16,11 +16,14 @@ class Autocomplete extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
     renderData() {
-        fetch("https://api.myjson.com/bins/7s1yx").then(response => {
+        // fetch("https://api.myjson.com/bins/7s1yx").then(response => {
+        const callingAPI = this.props.callingAPI;
+        fetch(`./api/${callingAPI}/`).then(response => {
             response.json().then(data => {
-                console.log(data);
+                // console.log(data[callingAPI]);
+
                 this.setState({
-                    data: data
+                    data: data[callingAPI]
                 });
             });
         });
@@ -36,12 +39,17 @@ class Autocomplete extends Component {
         });
         this.props.sendData(evt.currentTarget.innerText);
     }
-    handleKeyDown() {
-        console.log("");
+    handleKeyDown(evt) {
+        console.log(evt.keyCode);
+        if (evt.keyCode === 27) {
+            this.setState({
+                showSuggestions: false
+            });
+        }
     }
     handleChange(evt) {
         // let hj = evt.currentTarget.value;
-        let suggested = this.state.data.skills.filter(
+        let suggested = this.state.data.filter(
             val =>
                 val
                     .toLowerCase()

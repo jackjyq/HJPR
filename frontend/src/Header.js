@@ -3,7 +3,11 @@ import "./Header.css";
 
 class Header extends Component {
     render() {
-        return <div className="header">Course Recommender</div>;
+        return (
+            <div className="header">
+                <a href="/">Course Recommender</a>
+            </div>
+        );
     }
 }
 

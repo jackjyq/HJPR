@@ -28,6 +28,7 @@ class HomePage extends Component {
         alert(e.target.innerHTML);
     }
     renderData() {
+        localStorage.removeItem("data");
         fetch("./api/cloud").then(response => {
             response.json().then(data => {
                 console.log(data);
@@ -134,7 +135,7 @@ class HomePage extends Component {
                                             color: "#000",
                                             padding: 2,
                                             width: "100%",
-                                            height: "50%"
+                                            height: "20%"
                                         }}
                                     >
                                         {this.state.data.keywords.map(

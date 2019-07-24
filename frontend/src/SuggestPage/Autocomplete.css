@@ -5,12 +5,23 @@
 
 .autocomplete-unordered {
     list-style-type: none;
-    max-height: 150px;
+    max-height: 250px;
     overflow: auto;
-    padding-left: 10px;
+    padding: 0;
     border: 1px solid black;
     position: absolute;
     z-index: 50;
     background: white;
     width: 100%;
+    box-shadow: 2px 1px 12px -5px rgba(0, 0, 0, 0.75);
+}
+
+.autocomplete-unordered li {
+    padding: 5px;
+    /* padding-left: 0; */
+}
+
+.autocomplete-unordered li:hover {
+    background: rgb(236, 233, 58);
+    cursor: pointer;
 }

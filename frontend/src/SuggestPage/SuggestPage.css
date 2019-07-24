@@ -13,8 +13,12 @@
     flex-direction: unset;
 }
 .user-preference {
-    height: 100vh;
+    /* height: 100vh; */
+    padding-top: 4%;
     background: none;
+}
+.user-input-radio {
+    text-align: left;
 }
 .questions-inputs input {
     padding: 25px 10px;

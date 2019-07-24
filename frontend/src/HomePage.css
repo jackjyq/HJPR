@@ -69,7 +69,7 @@
     /* margin-top: 5%; */
     /* margin-right: 10%; */
     font-weight: bolder;
-    z-index: 10;
+    z-index: 120;
     /* margin: 5% auto; */
 }
 .homepage-button:hover {
@@ -85,7 +85,7 @@
 
 .homepage-detail-word-cloud div {
     position: absolute;
-    top: 40%;
+    bottom: 20%;
     /* z-index: 1; */
     color: black;
     opacity: 0.8;

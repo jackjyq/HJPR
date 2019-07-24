@@ -17,23 +17,40 @@ class RecommendedCoursesPage extends Component {
         this.handleHoverDonut = this.handleHoverDonut.bind(this);
     }
     renderData() {
-        fetch("./api/suggest/bert/").then(response => {
-            response.json().then(data => {
-                let courseArray = data.courses;
-                let allCourses = {};
-                let recommended = [];
-                courseArray.map(val => {
-                    recommended.push(val.label);
-                    allCourses[val.label] = val.desc;
-                });
-                let activeCourse = recommended[0];
-                this.setState({
-                    courses: courseArray,
-                    allCourses: allCourses,
-                    activeCourse: activeCourse,
-                    activeDesc: allCourses[activeCourse]
-                });
-            });
+        // fetch("./api/suggest/bert/").then(response => {
+        //     response.json().then(data => {
+        // let courseArray = localStorage.getItem("data");
+        // let allCourses = {};
+        // let recommended = [];
+        // console.log(courseArray);
+        // courseArray.courses.map(val => {
+        //     recommended.push(val.label);
+        //     allCourses[val.label] = val.desc;
+        // });
+        // let activeCourse = recommended[0];
+        // this.setState({
+        //     courses: courseArray,
+        //     allCourses: allCourses,
+        //     activeCourse: activeCourse,
+        //     activeDesc: allCourses[activeCourse]
+        // });
+        //     });
+        // });
+        // debugger;
+        let courseArray = JSON.parse(localStorage.getItem("data"));
+        let allCourses = {};
+        let recommended = [];
+        // console.log(courseArray.courses);
+        courseArray.courses.map(val => {
+            recommended.push(val.label);
+            allCourses[val.label] = val.desc;
+        });
+        let activeCourse = recommended[0];
+        this.setState({
+            coursesArray: courseArray.courses,
+            allCourses: allCourses,
+            activeCourse: activeCourse,
+            activeDesc: allCourses[activeCourse]
         });
     }
     componentWillMount() {
@@ -56,6 +73,8 @@ class RecommendedCoursesPage extends Component {
         });
     }
     render() {
+        // debugger;
+        console.log(typeof this.state.allCourses);
         let courseURL = "/courses/";
         return (
             <Container fluid={true}>
@@ -64,8 +83,8 @@ class RecommendedCoursesPage extends Component {
                         <div className="recommended-courses-header">
                             Here is a list of Recommended Courses for you:
                         </div>
-                        {this.state.courses &&
-                            this.state.courses.map((val, i) => {
+                        {this.state.coursesArray &&
+                            this.state.coursesArray.map((val, i) => {
                                 return (
                                     <Col
                                         md={12}
@@ -93,7 +112,7 @@ class RecommendedCoursesPage extends Component {
                     <Col md="7" className="recommended-courses-chart">
                         <div>
                             <DonutChart
-                                data={this.state.courses}
+                                data={this.state.coursesArray}
                                 height={400}
                                 width={400}
                                 innerRadius={0.5}

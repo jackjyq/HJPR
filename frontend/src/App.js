@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import HomePage from "./HomePage";
+// import HomePage from "./HomePage";
 import "./App.css";
 import Header from "./Header";
 // import UserPreference from "./UserPreference";
 import CourseInfo from "./CourseInfo";
-import SuggestPage from "./SuggestPage/SuggestPage";
+// import SuggestPage from "./SuggestPage/SuggestPage";
 import RecommendedCoursesPage from "./RecommendedCoursesPage";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./Footer";
 import Home from "./Home";
 
