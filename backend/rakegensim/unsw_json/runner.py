@@ -2,7 +2,9 @@ import gensim
 from nltk.tokenize import word_tokenize
 import csv
 import json
-
+import os
+# path=dir_path/rakegensim/unsw_json
+# os.chdir(r"..\\rakegensim\\unsw_json")
 def suggest(user_preference):
     try:
         skills = user_preference["skills"]
@@ -22,9 +24,35 @@ def suggest(user_preference):
         userInfoTotal=userInfo+userInfoMore
     else:
         userInfoTotal=userInfo
-    model=gensim.similarities.Similarity.load("./rakegensim/unsw_json/ModelSims")
-    tf_idf=gensim.similarities.Similarity.load("./rakegensim/unsw_json/tf_idfModel")
-    dictCollection=gensim.similarities.Similarity.load("./rakegensim/unsw_json/dictCollectionModel")
+    dataCollection=[]
+    with open('./rakegensim/unsw_json/CourseDataCleaned-2.csv', 'r') as readFile:
+        while (1):
+            line = readFile.readline()
+            if not line:
+                break
+            i = line.find(",")
+            courseCode = line[:i]
+            if(courseCode!="CourseCode"):
+                courseDescription = str(line[i+1:])
+                dataCollection.append(courseDescription)
+    dataList = [[l.lower() for l in word_tokenize(text)]
+                for text in dataCollection]
+    dictCollection = gensim.corpora.Dictionary(dataList)
+    # dictCollection.save("dictCollectionModel")
+    import os
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+
+    corpus = [dictCollection.doc2bow(data) for data in dataList]
+    # corpus.save("corpusModel")
+    tf_idf = gensim.models.TfidfModel(corpus)
+    # tf_idf.save("tf_idfModel")
+    model = gensim.similarities.Similarity(dir_path,\
+                                            tf_idf[corpus],num_features=len(dictCollection))
+    # sims.save("ModelSims")
+
+    # model=gensim.similarities.Similarity.load("./rakegensim/unsw_json/ModelSims")
+    # tf_idf=gensim.similarities.Similarity.load("./rakegensim/unsw_json/tf_idfModel")
+    # dictCollection=gensim.similarities.Similarity.load("./rakegensim/unsw_json/dictCollectionModel")
     query=[l.lower() for l in word_tokenize(userInfoTotal)]
     query_doc_bow = dictCollection.doc2bow(query)
     query_doc_tf_idf = tf_idf[query_doc_bow]
