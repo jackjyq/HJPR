@@ -28,10 +28,10 @@ class HomePage extends Component {
         alert(e.target.innerHTML);
     }
     renderData() {
-        localStorage.removeItem("data");
+        window.localStorage.removeItem("data");
         fetch("./api/cloud").then(response => {
             response.json().then(data => {
-                console.log(data);
+                // console.log(data);
                 this.setState({
                     data: data
                 });

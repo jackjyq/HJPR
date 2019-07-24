@@ -40,7 +40,7 @@ class Autocomplete extends Component {
         this.props.sendData(evt.currentTarget.innerText);
     }
     handleKeyDown(evt) {
-        console.log(evt.keyCode);
+        // console.log(evt.keyCode);
         if (evt.keyCode === 27) {
             this.setState({
                 showSuggestions: false

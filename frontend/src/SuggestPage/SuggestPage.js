@@ -69,7 +69,8 @@ class SuggestPage extends React.Component {
             modal: !prevstate.modal
         }));
     }
-    handleSubmit = async () => {
+    handleSubmit = async evt => {
+        evt.preventDefault();
         if (!this.state.courses.length || !this.state.skills.length) {
             this.setState({
                 modal: true,
@@ -97,12 +98,12 @@ class SuggestPage extends React.Component {
             if (response.ok) {
                 console.log("response worked!");
                 response.text().then(text => {
-                    localStorage.setItem("data", text);
+                    window.localStorage.setItem("data", text);
+                    window.location.href = "/suggest";
                 });
                 // localStorage.setItem("skills", this.state.skills);
                 // localStorage.setItem("courses", this.state.courses);
                 // localStorage.setItem("questions", this.state.questions);
-                window.location.href = "/suggest";
             }
         }
     };

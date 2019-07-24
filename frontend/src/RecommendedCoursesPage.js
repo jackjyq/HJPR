@@ -37,7 +37,8 @@ class RecommendedCoursesPage extends Component {
         //     });
         // });
         // debugger;
-        let courseArray = JSON.parse(localStorage.getItem("data"));
+
+        let courseArray = JSON.parse(window.localStorage.getItem("data"));
         let allCourses = {};
         let recommended = [];
         // console.log(courseArray.courses);
@@ -74,7 +75,7 @@ class RecommendedCoursesPage extends Component {
     }
     render() {
         // debugger;
-        console.log(typeof this.state.allCourses);
+        // console.log(typeof this.state.allCourses);
         let courseURL = "/courses/";
         return (
             <Container fluid={true}>
