@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import "./CourseInfo.css";
 import { Container, Row, Col, Card, CardTitle } from "reactstrap";
 // import CourseInfoData from "./CourseInfo.json";
-
+import ErrorComponent from "./ErrorComponent.js";
 class CourseInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: null,
-            courseId: null
+            courseId: null,
+            hasError: false
         };
         // console.log(this.state.courseId);
     }
@@ -25,21 +26,35 @@ class CourseInfo extends Component {
     // }
     async componentDidMount() {
         // this.renderData();
-        const response = await fetch(
-            `../api/course/${this.props.match.params.courseId}/`
-        );
+        const that = this;
+        try {
+            const response = await fetch(
+                `../api/course/${this.props.match.params.courseId}/`
+            );
 
-        const data = await response.json();
-        this.setState({
-            data: data,
-            courseId: data.courseCode
-        });
+            const data = await response.json();
+            if ("errorMsg" in data) {
+                that.setState({
+                    hasError: true
+                });
+            } else {
+                this.setState({
+                    data: data,
+                    courseId: data.courseCode
+                });
+            }
+        } catch (err) {
+            this.setState({
+                // data: data,
+                hasError: true
+            });
+        }
     }
     render() {
-        console.log(this.props.match.params.courseId);
-        if (this.props.match.params.courseId !== this.state.courseId) {
-            console.log("Errrrrrrrrr");
-        }
+        // console.log(this.props.match.params.courseId);
+        // if (this.props.match.params.courseId !== this.state.courseId) {
+        //     console.log("Errrrrrrrrr");
+        // }
         // const CourseInfoData = this.state.data;
         // let COURSEURL =
         //     "https://www.ntnu.edu/studies/courses/" +
@@ -59,6 +74,9 @@ class CourseInfo extends Component {
         //         </Col>
         //     );
         // });
+        if (this.state.hasError) {
+            return <ErrorComponent />;
+        }
         return (
             <Container fluid={true} className="course-info">
                 {this.state.data && (

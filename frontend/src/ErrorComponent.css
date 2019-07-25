@@ -1,0 +1,8 @@
+.error-component {
+    height: calc(100vh - 100px);
+}
+.error-component img {
+    margin: 0 auto;
+    padding: 50px;
+    display: block;
+}

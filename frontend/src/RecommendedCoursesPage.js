@@ -4,6 +4,8 @@ import DonutChart from "react-donut-chart";
 import { Container, Row, Col, Card, CardTitle } from "reactstrap";
 // import recommendedCourses from "./recommendedCourses.json";
 import { Link } from "react-router-dom";
+import ErrorComponent from "./ErrorComponent";
+
 class RecommendedCoursesPage extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +13,8 @@ class RecommendedCoursesPage extends Component {
             courseArray: null,
             allCourses: null,
             activeCourse: null,
-            activeDesc: null
+            activeDesc: null,
+            hasError: false
         };
         this.handleHover = this.handleHover.bind(this);
         this.handleHoverDonut = this.handleHoverDonut.bind(this);
@@ -42,17 +45,24 @@ class RecommendedCoursesPage extends Component {
         let allCourses = {};
         let recommended = [];
         // console.log(courseArray.courses);
-        courseArray.courses.map(val => {
-            recommended.push(val.label);
-            allCourses[val.label] = val.desc;
-        });
-        let activeCourse = recommended[0];
-        this.setState({
-            coursesArray: courseArray.courses,
-            allCourses: allCourses,
-            activeCourse: activeCourse,
-            activeDesc: allCourses[activeCourse]
-        });
+        if (courseArray === null) {
+            this.setState({
+                hasError: true
+            });
+        } else {
+            courseArray.courses.map(val => {
+                recommended.push(val.label);
+                allCourses[val.label] = val.desc;
+            });
+            let activeCourse = recommended[0];
+            this.setState({
+                coursesArray: courseArray.courses,
+                allCourses: allCourses,
+                activeCourse: activeCourse,
+                activeDesc: allCourses[activeCourse]
+            });
+            window.localStorage.removeItem("data");
+        }
     }
     componentWillMount() {
         this.renderData();
@@ -74,6 +84,9 @@ class RecommendedCoursesPage extends Component {
         });
     }
     render() {
+        if (this.state.hasError) {
+            return <ErrorComponent />;
+        }
         // debugger;
         // console.log(typeof this.state.allCourses);
         let courseURL = "/courses/";

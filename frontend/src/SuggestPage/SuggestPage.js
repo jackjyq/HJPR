@@ -148,7 +148,6 @@ class SuggestPage extends React.Component {
                 modalMessage: "Looks like you've already added this item."
             });
         }
-        console.log(this.state);
     }
     getDataCourses(val) {
         const courses = this.state.courses;
@@ -161,7 +160,6 @@ class SuggestPage extends React.Component {
                 modalMessage: "Looks like you've already added this item."
             });
         }
-        console.log(this.state);
     }
 
     handleClick(e) {
@@ -174,7 +172,6 @@ class SuggestPage extends React.Component {
             // this.props.handleClickOnSubmit();
             this.setState({ showCourseList: true });
         } else if (id === "addCourse") {
-            console.log("discardButton");
             // add course to state
 
             const courses = this.state.courses;
