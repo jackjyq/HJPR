@@ -1,4 +1,7 @@
-# HJPR Backend Fuction Interface
+# HJPR Model Interface
+
+- Jack Jiang(z5129432)
+- jackjyq@outlook.com
 
 ## Sample data
 

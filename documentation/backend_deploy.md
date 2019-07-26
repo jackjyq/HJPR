@@ -1,8 +1,12 @@
 # HJPR Backend Deployment Documentation
 
+- Jack Jiang(z5129432)
+- jackjyq@outlook.com
+
 ## Frist Time Setup
 
 ```shell
+cd HJPR/backend
 python3 -m venv python_modules          # create python virtual environment
 source ./python_modules/bin/activate    # activate python virtual environment
 python3 -m pip install -r package.txt   # install package from package.txt

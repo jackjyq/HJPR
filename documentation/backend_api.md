@@ -1,5 +1,8 @@
 # HJPR Backend API Documentation
 
+- Jack Jiang(z5129432)
+- jackjyq@outlook.com
+
 ## @URL
 
 [http://localhost:5000](http://localhost:5000)

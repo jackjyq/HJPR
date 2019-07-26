@@ -1,5 +1,8 @@
 # HJPR Server URL Defination
 
+- Jack Jiang(z5129432)
+- jackjyq@outlook.com
+
 ## Backend and backend_dump
 
 [http://localhost:5000](http://localhost:5000)
