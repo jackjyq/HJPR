@@ -4,13 +4,20 @@ Course Feature Extraction and Recommender System
 
 ## File structure
 
-- backend: the backend server
-  - backend/bert: the bert model engine
-  - backend/rakegensim: the rakegensim engine
-  - backend/testBert.py: bert model engine test file
-- frontend: the frontend server
-- backend_dump: used to test frontend, not part of the final project
-- frontend_dump: used to test backend, not part of the final project
+### Project Files
+
+- HJPR/backend:
+  - HJPR/backend/main.py: the backend server
+  - HJPR/backend/bert: the bert model engine
+  - HJPR/backend/rakegensim: the rakegensim engine
+- HJPR/frontend: the frontend server
+
+### Test Files
+
+- HJPR/backend:
+  - HJPR/backend/testBert.py: bert model engine test file
+- backend_dump: frontend test files
+- frontend_dump: backend test files
 
 ## Deployment Documentation
 
