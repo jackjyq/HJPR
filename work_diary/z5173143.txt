@@ -41,3 +41,13 @@ Week 7
 2. Implemented Routers
 3. Implemented the Autocomplete component
 4. Worked on the styling
+
+Week 8
+1. Integration with backend
+2. Solved the warnings
+3. Styling enhancements of pages
+
+Week 9
+1. Worked on integration with Himanshu and Jack
+3. Removed unnecessary files and comments 
+4. Solved the word cloud text size issue
