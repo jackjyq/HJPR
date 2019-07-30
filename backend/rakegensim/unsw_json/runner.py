@@ -100,7 +100,7 @@ def suggest(user_preference):
     finalListToJson={}
     listc=[]
     if(len(listSimilarity)==0 or sum1 == 0.0 or sum1!=0):
-        return 0, "No Matches Found"
+        return 1, "No Matches Found"
     for courseValue in listSimilarity[:8]:
         if(courseValue[1]!=0.0 and sum1 !=0.0 and sum1 != 0):
             tempc={}
