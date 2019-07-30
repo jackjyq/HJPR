@@ -42,7 +42,7 @@ def suggest(user_preference):
     dictCollection = gensim.corpora.Dictionary(dataList)
     # dictCollection.save("dictCollectionModel")
     import os
-    dir_path = os.path.dirname(os.path.realpath(_file_))
+    dir_path = os.path.dirname(os.path.realpath(__file__))
 
     corpus = [dictCollection.doc2bow(data) for data in dataList]
     # corpus.save("corpusModel")
