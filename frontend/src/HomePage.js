@@ -89,11 +89,11 @@ class HomePage extends Component {
                                     <TagCloud
                                         style={{
                                             fontFamily: "sans-serif",
-                                            fontSize: 10,
+                                            // fontSize: 10,
                                             fontWeight: "bold",
                                             fontStyle: "italic",
                                             color: "#000",
-                                            padding: 2,
+                                            padding: 8,
                                             width: "100%",
                                             height: "20%"
                                         }}
@@ -102,7 +102,15 @@ class HomePage extends Component {
                                             (val, i) => {
                                                 return (
                                                     <div
-                                                        style={{ fontSize: 20 }}
+                                                        style={{
+                                                            fontSize: Math.min(
+                                                                Math.floor(
+                                                                    2 *
+                                                                        val.value
+                                                                ),
+                                                                24
+                                                            )
+                                                        }}
                                                         key={i}
                                                         onClick={
                                                             this
