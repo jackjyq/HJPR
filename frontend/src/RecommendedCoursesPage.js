@@ -47,7 +47,7 @@ class RecommendedCoursesPage extends Component {
                 hasError: true
             });
         } else {
-            courseArray.courses.map(val => {
+            courseArray.courses.forEach(val => {
                 recommended.push(val.label);
                 allCourses[val.label] = val.desc;
             });
