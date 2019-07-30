@@ -99,10 +99,10 @@ def suggest(user_preference):
         return 1,value
     finalListToJson={}
     listc=[]
-    if(len(listSimilarity)==0 || sum1 == 0.0 || sum1=0):
+    if(len(listSimilarity)==0 or sum1 == 0.0 or sum1=0):
         return 0, "No Matches Found"
     for courseValue in listSimilarity[:8]:
-        if(courseValue[1]!=0.0 && sum1 !=0.0 && sum1 != 0):
+        if(courseValue[1]!=0.0 and sum1 !=0.0 and sum1 != 0):
             tempc={}
             tempc["label"]=dictCourseInfo[courseValue[0]][0]
             tempc["value"]=courseValue[1]/sum1
