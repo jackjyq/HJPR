@@ -7,10 +7,11 @@
     height: 100%;
     align-items: center;
     justify-content: center;
-    background-color: cornflowerblue;
+    background-color: #048a81;
 }
 
 .course-info-code {
+    flex-wrap: wrap;
     text-align: center;
     font-size: 3em;
     font-weight: bolder;
@@ -22,8 +23,12 @@
     color: white;
 }
 
+.course-info-cloud {
+    margin-top: 50px;
+}
+
 .course-info-desc {
-    border-left: 10px dashed cornflowerblue;
+    border-left: 10px dashed #048a81;
     padding: 20px 40px;
     background: white;
 }
@@ -35,7 +40,7 @@
 .course-info-url {
     display: block;
     padding: 20px;
-    background-color: #2196f3;
+    background-color: #01a7c2;
     color: white;
     margin: 1.5% auto;
     width: 25%;
@@ -43,13 +48,14 @@
 }
 
 .course-info-url:hover {
-    background-color: #0d47a1;
+    background-color: #1b3b6f;
     color: white;
     text-decoration: none;
 }
 
 .course-info-related-courses {
     text-align: center;
+    margin: 3%;
 }
 
 /* .course-info-related-courses div {
@@ -59,12 +65,23 @@
 .related-courses-header {
     font-size: 20px;
     margin: 0 auto;
+    margin-top: 15px;
 }
 .course-info-related-courses a {
     display: inline-block;
     padding: 10px;
-    background-color: #2196f3;
+    background-color: #01a7c2;
     color: white;
     width: 80%;
     margin: 10px auto 25px;
+    text-decoration: none;
+}
+
+.course-info-related-courses a:hover {
+    background-color: #1b3b6f;
+}
+
+.course-info-skills-header {
+    display: block;
+    font-size: 12px;
 }

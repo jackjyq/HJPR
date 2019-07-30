@@ -14,6 +14,7 @@ class Autocomplete extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.myReference = React.createRef();
     }
     renderData() {
         // fetch("https://api.myjson.com/bins/7s1yx").then(response => {
@@ -37,6 +38,7 @@ class Autocomplete extends Component {
             userinput: "",
             showSuggestions: false
         });
+        this.myReference.current.value = "";
         this.props.sendData(evt.currentTarget.innerText);
     }
     handleKeyDown(evt) {
@@ -91,6 +93,8 @@ class Autocomplete extends Component {
                     placeholder={this.props.placeholderAuto}
                     onKeyDown={this.handleKeyDown}
                     onChange={this.handleChange}
+                    autoComplete="off"
+                    innerRef={this.myReference}
                     // value={this.state.userinput}
                 />
                 {lists}
