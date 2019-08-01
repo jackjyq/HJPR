@@ -13,3 +13,4 @@ parameter = {
     "questions": "I lke programming"
 }
 print (bert_suggest(parameter))
+print ("Test success!")

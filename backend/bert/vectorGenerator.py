@@ -68,7 +68,8 @@ def descriptionToVecList(courseData, outputDir):
                 toBERTVector(courseCode, courseCode, textDir, bertDir)
                 vec = getVector(bertDir + courseCode + ".json")
                 listVec.append(vec)
-                fpLabel.write(courseCode)
+                #fpLabel.write(courseCode)
+                fpLabel.write(line)
                 fpLabel.write('\n')
                 nSuccess += 1
             except: 
