@@ -1,5 +1,9 @@
 Run the backend:
 
+- Author: Junjun Pan(z5141460)
+- Email: z5141460@ad.unsw.edu.au  
+
+
 1 Clone the repo.
 2 Make sure that python3 is installed in your system.
 3 Go to the base of HJPR/
