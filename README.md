@@ -9,7 +9,7 @@ Course Feature Extraction and Recommender System
 > ——[Project Final System Submission](https://webcms3.cse.unsw.edu.au/COMP9900/19T2/resources/27665)
 
 - [HJPR Backend Server Deployment](./documentation/backend_deploy.md)
-- [Bert Engine Deplopyment](./documentation/bert_deploy.txt)
+- [Bert Engine Deplopyment](./documentation/bert_deploy.md)
 - [HJPR Frontend Server Deployment](./documentation/frontend_deploy.md)
 
 ## Interface
