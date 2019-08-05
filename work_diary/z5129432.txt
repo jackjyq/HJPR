@@ -32,3 +32,12 @@ Week 7
 1. connect to bert model
 2. connect to rakegensim model
 3. Add a new API to selected the underline models
+
+Week 8
+1. amended API according to the requirment of frontend
+2. finilise documentations
+
+Week 9
+1. assign task to prepare the demonstration
+2. assign task to write the report
+3. test system in CSE lab computer
