@@ -1,14 +1,14 @@
 absl-py==0.7.1
 astor==0.8.0
 boto==2.49.0
-boto3==1.9.194
-botocore==1.12.194
+boto3==1.9.199
+botocore==1.12.199
 certifi==2019.6.16
 chardet==3.0.4
 Click==7.0
 docutils==0.14
-Flask==1.1.1
-Flask-Cors==3.0.8
+flask==1.1.1
+flask-cors==3.0.8
 gast==0.2.2
 gensim==3.8.0
 google-pasta==0.1.7
@@ -24,7 +24,7 @@ Markdown==3.1.1
 MarkupSafe==1.1.1
 mongoengine==0.18.2
 nltk==3.4.4
-numpy==1.16.4
+numpy==1.17.0
 protobuf==3.9.0
 pymongo==3.8.0
 python-dateutil==2.8.0
@@ -38,5 +38,5 @@ tensorflow==1.14.0
 tensorflow-estimator==1.14.0
 termcolor==1.1.0
 urllib3==1.25.3
-Werkzeug==0.15.4
+Werkzeug==0.15.5
 wrapt==1.11.2

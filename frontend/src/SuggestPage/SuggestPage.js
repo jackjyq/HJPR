@@ -80,7 +80,6 @@ class SuggestPage extends React.Component {
             this.setState({
                 fetching: true
             });
-            // const movie = { title, rating };
             const response = await fetch(
                 `./api/suggest/${this.state.selectedOption}/`,
                 {
@@ -98,20 +97,22 @@ class SuggestPage extends React.Component {
             if (response.ok) {
                 console.log("response worked!");
                 response.text().then(text => {
+                    console.log(text);
                     window.localStorage.setItem("data", text);
                     window.location.href = "/suggest";
                 });
-                // localStorage.setItem("skills", this.state.skills);
-                // localStorage.setItem("courses", this.state.courses);
-                // localStorage.setItem("questions", this.state.questions);
+            } else {
+                this.setState({
+                    modal: true,
+                    modalMessage: "No similar courses found. Please try again.",
+                    fetching: false
+                });
+                this.handleDiscard();
             }
         }
     };
     handleChange(e) {
         const id = e.target.id;
-        // if (id === "skillInput") {
-        //     this.setState({ skill: e.currentTarget.innerText });
-        // } else
         if (id === "courseInput") {
             this.setState({ course: e.target.value });
         } else {
@@ -120,14 +121,12 @@ class SuggestPage extends React.Component {
     }
 
     onRemoveSkills(index) {
-        // console.log(index)
         const skills = this.state.skills;
         skills.splice(index, 1);
         this.setState({ skills: skills });
     }
 
     onRemoveCourses(index) {
-        // console.log(index)
         const courses = this.state.courses;
         courses.splice(index, 1);
         this.setState({ courses: courses });
@@ -164,16 +163,9 @@ class SuggestPage extends React.Component {
 
     handleClick(e) {
         const id = e.target.id;
-        // if (id === "discardButton") {
-        //     this.props.handleClickOnSuggestPage();
-        // } else
         if (id === "submitButton") {
-            // console.log(this.state)
-            // this.props.handleClickOnSubmit();
             this.setState({ showCourseList: true });
         } else if (id === "addCourse") {
-            // add course to state
-
             const courses = this.state.courses;
             if (!courses.includes(this.state.course)) {
                 courses.unshift(this.state.course);
@@ -184,10 +176,7 @@ class SuggestPage extends React.Component {
                     modalMessage: "Looks like you've already added this item."
                 });
             }
-            // courses.unshift(this.state.course);
-            // this.setState({ courses: courses, course: "" });
         } else if (id === "addSkill") {
-            // console.log(this.state);
             const skills = this.state.skills;
             skills.unshift(this.state.skill);
             this.setState({ skills: skills, skill: "" });
@@ -210,13 +199,8 @@ class SuggestPage extends React.Component {
                         Fields
                     </span>
                 </p>
-                {/* <hr /> */}
-
-                {/* <hr className="my-2" /> */}
-                {/* <Autocomplete /> */}
                 <Form>
                     <FormGroup className="lead question" row>
-                        {/* <Col sm="4"> */}
                         <Label
                             sm={4}
                             className="span-question"
@@ -225,27 +209,15 @@ class SuggestPage extends React.Component {
                             Add the skills you want to learn
                             <span className="form-required"> *</span>
                         </Label>
-                        {/* </Col> */}
                         <Col sm="8">
                             <InputGroup className="questions-inputs">
                                 <Autocomplete
-                                    // value={skill}
                                     compID="skillInput"
-                                    placeholderAuto="Python"
+                                    placeholderAuto="Start typing the skills..."
                                     onChange={this.handleChange}
                                     sendData={this.getData}
                                     callingAPI="skills"
-                                    // id="autocomplete"
                                 />
-                                {/* <InputGroupAddon addonType="append">
-                                <Button
-                                    color="primary"
-                                    id="addSkill"
-                                    onClick={this.handleClick}
-                                >
-                                    Add
-                                </Button>
-                            </InputGroupAddon> */}
                             </InputGroup>
                             <ListGroup className="list-additions">
                                 <ShowList
@@ -256,7 +228,6 @@ class SuggestPage extends React.Component {
                         </Col>
                     </FormGroup>
                     <FormGroup className="lead question" row>
-                        {/* <Col sm="4"> */}
                         <Label
                             sm={4}
                             className="span-question"
@@ -265,33 +236,15 @@ class SuggestPage extends React.Component {
                             Add the courses you have taken
                             <span className="form-required"> *</span>
                         </Label>
-                        {/* </Col> */}
                         <Col sm="8">
                             <InputGroup className="questions-inputs">
                                 <Autocomplete
-                                    // value={skill}
                                     compID="courseInput"
-                                    placeholderAuto="COMP1000"
+                                    placeholderAuto="Start typing the course..."
                                     onChange={this.handleChange}
                                     sendData={this.getDataCourses}
                                     callingAPI="courses"
-                                    // id="autocomplete"
                                 />
-                                {/* <Input
-                                    value={course}
-                                    id="courseInput"
-                                    placeholder="MA3402"
-                                    onChange={this.handleChange}
-                                /> */}
-                                {/* <InputGroupAddon addonType="append">
-                                    <Button
-                                        color="primary"
-                                        id="addCourse"
-                                        onClick={this.handleClick}
-                                    >
-                                        Add
-                                    </Button>
-                                </InputGroupAddon> */}
                             </InputGroup>
                             <ListGroup className="list-additions">
                                 <ShowList
@@ -302,7 +255,6 @@ class SuggestPage extends React.Component {
                         </Col>
                     </FormGroup>
                     <FormGroup className="lead question" row>
-                        {/* <Col sm="4"> */}
                         <Label
                             sm={4}
                             className="span-question"
@@ -310,7 +262,6 @@ class SuggestPage extends React.Component {
                         >
                             Tell us your interests, likes and hobbies
                         </Label>
-                        {/* </Col> */}
                         <Col sm="8">
                             <Input
                                 type="textarea"
@@ -322,7 +273,7 @@ class SuggestPage extends React.Component {
                         </Col>
                     </FormGroup>
                     <FormGroup tag="fieldset" className="user-input-radio">
-                        <legend>Select the model</legend>
+                        <legend>Select the model:</legend>
                         <FormGroup check>
                             <Label check>
                                 <Input
@@ -334,7 +285,7 @@ class SuggestPage extends React.Component {
                                         this.state.selectedOption === "bert"
                                     }
                                 />{" "}
-                                Submit using Bert Model
+                                Use Bert Model
                             </Label>
                         </FormGroup>
                         <FormGroup check>
@@ -349,7 +300,7 @@ class SuggestPage extends React.Component {
                                         "rakegensim"
                                     }
                                 />{" "}
-                                Submit using RakeGensim Model
+                                Use RakeGensim Model
                             </Label>
                         </FormGroup>
                     </FormGroup>
@@ -360,8 +311,6 @@ class SuggestPage extends React.Component {
                             type="grow"
                         />
                     )}
-
-                    {/* <p className="lead" /> */}
                     <p className="lead">
                         <Button
                             color="success"
@@ -380,13 +329,6 @@ class SuggestPage extends React.Component {
                             Discard
                         </Button>
                     </p>
-                    {/* {showCourseList && (
-                    <CourseList
-                        handleClickOnCourseList={this.handleClickOnCourseList}
-                        courses={this.state.courses}
-                        setCourseInfo={this.props.setCourseInfo}
-                    />
-                )} */}
                 </Form>
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalBody>{this.state.modalMessage}</ModalBody>

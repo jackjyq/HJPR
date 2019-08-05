@@ -1,4 +1,6 @@
 import gensim
+import nltk
+#ntlk.download('punkt')
 from nltk.tokenize import word_tokenize
 import csv
 import json
@@ -97,12 +99,24 @@ def suggest(user_preference):
         return 1,value
     finalListToJson={}
     listc=[]
+    move=1
+    courses_add=["COMP1000", "COMP1010", "COMP1400"]
+    if(len(listSimilarity)==0 ):
+        for courses_a in courses_add:
+            tempc={}
+            tempc["label"]=courses_a
+            tempc["value"]=0.3
+            tempc["desc"]=dictCourseInfo[move][1]
+            listc.append(tempc)
+            move += 1
+        finalListToJson["courses"]=listc
+        return 0, finalListToJson
     for courseValue in listSimilarity[:8]:
         if(courseValue[1]!=0.0):
             tempc={}
-            tempc["label"]=dictCourseInfo[courseValue[0]][0]
+            tempc["label"]=dictCourseInfo[courseValue[0]+1][0]
             tempc["value"]=courseValue[1]/sum1
-            tempc["desc"]=dictCourseInfo[courseValue[0]][1]
+            tempc["desc"]=dictCourseInfo[courseValue[0]+1][1]
             listc.append(tempc)
     finalListToJson["courses"]=listc
     return 0, finalListToJson

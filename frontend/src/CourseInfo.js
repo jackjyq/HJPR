@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./CourseInfo.css";
 import { Container, Row, Col, Card, CardTitle } from "reactstrap";
-// import CourseInfoData from "./CourseInfo.json";
 import ErrorComponent from "./ErrorComponent.js";
+import TagCloud from "react-tag-cloud";
+
 class CourseInfo extends Component {
     constructor(props) {
         super(props);
@@ -11,21 +12,8 @@ class CourseInfo extends Component {
             courseId: null,
             hasError: false
         };
-        // console.log(this.state.courseId);
     }
-    // renderData() {
-    //     fetch("./api/course/TSMA2004/").then(response => {
-    //         response.json().then(data => {
-    //             console.log(data);
-    //             this.setState({
-    //                 data: data,
-    //                 courseId: data.courseCode
-    //             });
-    //         });
-    //     });
-    // }
     async componentDidMount() {
-        // this.renderData();
         const that = this;
         try {
             const response = await fetch(
@@ -45,35 +33,12 @@ class CourseInfo extends Component {
             }
         } catch (err) {
             this.setState({
-                // data: data,
                 hasError: true
             });
         }
     }
+
     render() {
-        // console.log(this.props.match.params.courseId);
-        // if (this.props.match.params.courseId !== this.state.courseId) {
-        //     console.log("Errrrrrrrrr");
-        // }
-        // const CourseInfoData = this.state.data;
-        // let COURSEURL =
-        //     "https://www.ntnu.edu/studies/courses/" +
-        //     `${CourseInfoData.courseCode}`;
-        // let desc = CourseInfoData.courseDesc.replace(/[0-9]./g, "<\n>$& ");
-        // console.log(desc);
-        // let courseCards = CourseInfoData.similarCourses.map((val, i) => {
-        //     let courseCode = "https://www.ntnu.edu/studies/courses/";
-        //     return (
-        //         <Col md={4} key={i}>
-        //             <Card>
-        //                 <CardTitle>{val}</CardTitle>
-        //                 <a href={courseCode + val} target="_blank">
-        //                     Course Homepage
-        //                 </a>
-        //             </Card>
-        //         </Col>
-        //     );
-        // });
         if (this.state.hasError) {
             return <ErrorComponent />;
         }
@@ -83,10 +48,26 @@ class CourseInfo extends Component {
                     <Row>
                         <Col md={3} className="course-info-code">
                             {this.state.data.courseCode}
+                            <TagCloud
+                                className="course-info-cloud"
+                                style={{
+                                    fontFamily: "sans-serif",
+                                    fontSize: 12,
+                                    fontWeight: "bold",
+                                    fontStyle: "italic",
+                                    color: "#000",
+                                    padding: 2,
+                                    width: "100%",
+                                    height: "200px"
+                                }}
+                            >
+                                {this.state.data.skills.map((val, i) => {
+                                    return <div key={i}>{val}</div>;
+                                })}
+                            </TagCloud>
                         </Col>
                         <Col md={9} className="course-info-desc">
                             {this.state.data.courseDesc
-                                // .replace('"', "")
                                 .split("<\n>")
                                 .map((i, key) => {
                                     return <div key={key}>{i}</div>;
@@ -107,10 +88,9 @@ class CourseInfo extends Component {
                                 Related Courses:
                             </Row>
                             <Row className="course-info-related-courses">
-                                {this.state.data.similarCourses.map(
-                                    (val, i) => {
-                                        // let courseCode =
-                                        //     "https://www.cse.unsw.edu.au/~";
+                                {this.state.data.similarCourses
+                                    .slice(0, 6)
+                                    .map((val, i) => {
                                         return (
                                             <Col md={4} key={i}>
                                                 <Card>
@@ -127,8 +107,7 @@ class CourseInfo extends Component {
                                                 </Card>
                                             </Col>
                                         );
-                                    }
-                                )}
+                                    })}
                             </Row>
                         </Col>
                     </Row>

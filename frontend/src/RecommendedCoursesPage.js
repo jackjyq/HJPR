@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./RecommendedCoursesPage.css";
 import DonutChart from "react-donut-chart";
 import { Container, Row, Col, Card, CardTitle } from "reactstrap";
-// import recommendedCourses from "./recommendedCourses.json";
 import { Link } from "react-router-dom";
 import ErrorComponent from "./ErrorComponent";
 
@@ -40,17 +39,15 @@ class RecommendedCoursesPage extends Component {
         //     });
         // });
         // debugger;
-
         let courseArray = JSON.parse(window.localStorage.getItem("data"));
         let allCourses = {};
         let recommended = [];
-        // console.log(courseArray.courses);
-        if (courseArray === null) {
+        if (courseArray === null || courseArray === "No Matches Found") {
             this.setState({
                 hasError: true
             });
         } else {
-            courseArray.courses.map(val => {
+            courseArray.courses.forEach(val => {
                 recommended.push(val.label);
                 allCourses[val.label] = val.desc;
             });
@@ -90,8 +87,14 @@ class RecommendedCoursesPage extends Component {
         // debugger;
         // console.log(typeof this.state.allCourses);
         let courseURL = "/courses/";
+        let arrayOfColors = ["#654F6F", "#654F6F", "A8C69F", "#CA9CE1"];
+        let styleToAdd = {
+            boxShadow:
+                "0px 0px 15px 0px " +
+                arrayOfColors[Math.floor(Math.random() * arrayOfColors.length)]
+        };
         return (
-            <Container fluid={true}>
+            <Container fluid={true} className="recommended-courses-container">
                 <Row>
                     <Col md="5" className="recommended-courses">
                         <div className="recommended-courses-header">
@@ -127,10 +130,8 @@ class RecommendedCoursesPage extends Component {
                         <div>
                             <DonutChart
                                 data={this.state.coursesArray}
-                                height={400}
-                                width={400}
-                                innerRadius={0.5}
-                                // legend={false}
+                                height={450}
+                                width={600}
                                 strokeColor="#ffffff"
                                 onClick={item =>
                                     (window.location.href =
@@ -139,7 +140,10 @@ class RecommendedCoursesPage extends Component {
                                 onMouseEnter={this.handleHoverDonut}
                             />
                         </div>
-                        <div className="recommended-courses-desc">
+                        <div
+                            style={styleToAdd}
+                            className="recommended-courses-desc"
+                        >
                             {this.state.activeDesc}
                         </div>
                     </Col>
