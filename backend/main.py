@@ -111,7 +111,6 @@ def get_courses():
 def get_suggest(model):
     data_json = request.data
     data_dict = json.loads(data_json)
-    print(data_dict)
     if (model == "bert"):
         status, value = bert_suggest(data_dict)
     elif (model == "rakegensim"):
