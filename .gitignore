@@ -1,7 +1,6 @@
 .DS_Store
 vscode/
 backend/vectorOutput/rawText/tempInput.txt
-backend/vectorOutput/vecBERT/tempInput.json
 backend/vectorOutput/rawText/tempInput.txt
 backend/rakegensim/unsw_json.0
 backend/vectorOutput/rawText/tempInput.txt
