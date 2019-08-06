@@ -1,6 +1,6 @@
 import gensim
 import nltk
-#ntlk.download('punkt')
+nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 import csv
 import json
