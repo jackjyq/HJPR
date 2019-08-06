@@ -27,6 +27,19 @@ Week5:-
 3) Research done for the different models to find similarity between courses(BERT, Gensim , TFID etc)
 
 Week6:-
-1) Implemented the model to generate skills from the course description to be used for generating the word cloud
+1) Implemented the RAKE model to generate skills from the course description to be used for generating the word cloud
 2) Had a meeting with Ali about the UI
 3) Discussed the backend API with Rishabh and Jack and brainstormed on the format of the output at backend
+
+Week7:-
+1) Implementation of GENSIM model to find similarity of documents
+2) Sending skills and all the data in JSON format to backend API, so as to send it to the frontend.
+
+Week8:-
+1) Researching techniques to improve efficiency of the model for similarity.
+2) Combined the RAKE and GENSIM model which resulted in improved efficiency.
+3) Sending the new data based on the new model combination to the backend API.
+
+Week9:-
+1) Team meeting for implementing and merging the code together
+2) Resolving few problems faced after compilation of the code together with the frontend
