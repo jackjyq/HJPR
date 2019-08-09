@@ -49,5 +49,9 @@ Week 8
 
 Week 9
 1. Worked on integration with Himanshu and Jack
-3. Removed unnecessary files and comments 
-4. Solved the word cloud text size issue
+2. Removed unnecessary files and comments 
+3. Solved the word cloud text size issue
+
+Week 10
+1. Presented the demo.
+2. Worked on the Report.

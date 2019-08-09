@@ -1,6 +1,5 @@
 .course-info {
     text-align: left;
-    /* height: calc(100% - 50px); */
 }
 
 .course-info .row:first-child {
@@ -57,10 +56,6 @@
     text-align: center;
     margin: 3%;
 }
-
-/* .course-info-related-courses div {
-    padding-top: 5px;
-} */
 
 .related-courses-header {
     font-size: 20px;

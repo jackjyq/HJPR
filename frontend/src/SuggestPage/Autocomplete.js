@@ -17,12 +17,9 @@ class Autocomplete extends Component {
         this.myReference = React.createRef();
     }
     renderData() {
-        // fetch("https://api.myjson.com/bins/7s1yx").then(response => {
         const callingAPI = this.props.callingAPI;
         fetch(`./api/${callingAPI}/`).then(response => {
             response.json().then(data => {
-                // console.log(data[callingAPI]);
-
                 this.setState({
                     data: data[callingAPI]
                 });
@@ -42,7 +39,6 @@ class Autocomplete extends Component {
         this.props.sendData(evt.currentTarget.innerText);
     }
     handleKeyDown(evt) {
-        // console.log(evt.keyCode);
         if (evt.keyCode === 27) {
             this.setState({
                 showSuggestions: false
@@ -50,7 +46,6 @@ class Autocomplete extends Component {
         }
     }
     handleChange(evt) {
-        // let hj = evt.currentTarget.value;
         let suggested = this.state.data.filter(
             val =>
                 val
@@ -66,7 +61,6 @@ class Autocomplete extends Component {
 
     render() {
         let lists;
-        // let that = this;
         if (this.state.showSuggestions && this.state.filters.length) {
             if (this.state.filters.length) {
                 lists = (
@@ -82,9 +76,6 @@ class Autocomplete extends Component {
                 );
             }
         }
-        // else {
-        //     lists = <div>No Components to Show</div>;
-        // }
         return (
             <div className="autocomplete-input">
                 <Input
@@ -95,7 +86,6 @@ class Autocomplete extends Component {
                     onChange={this.handleChange}
                     autoComplete="off"
                     innerRef={this.myReference}
-                    // value={this.state.userinput}
                 />
                 {lists}
             </div>

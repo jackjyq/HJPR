@@ -19,26 +19,6 @@ class RecommendedCoursesPage extends Component {
         this.handleHoverDonut = this.handleHoverDonut.bind(this);
     }
     renderData() {
-        // fetch("./api/suggest/bert/").then(response => {
-        //     response.json().then(data => {
-        // let courseArray = localStorage.getItem("data");
-        // let allCourses = {};
-        // let recommended = [];
-        // console.log(courseArray);
-        // courseArray.courses.map(val => {
-        //     recommended.push(val.label);
-        //     allCourses[val.label] = val.desc;
-        // });
-        // let activeCourse = recommended[0];
-        // this.setState({
-        //     courses: courseArray,
-        //     allCourses: allCourses,
-        //     activeCourse: activeCourse,
-        //     activeDesc: allCourses[activeCourse]
-        // });
-        //     });
-        // });
-        // debugger;
         let courseArray = JSON.parse(window.localStorage.getItem("data"));
         let allCourses = {};
         let recommended = [];
@@ -72,7 +52,6 @@ class RecommendedCoursesPage extends Component {
         });
     }
     handleHoverDonut(item) {
-        // console.log(item);
         let activeCourse = item.label;
         let desc = item.desc;
         this.setState({
@@ -84,8 +63,6 @@ class RecommendedCoursesPage extends Component {
         if (this.state.hasError) {
             return <ErrorComponent />;
         }
-        // debugger;
-        // console.log(typeof this.state.allCourses);
         let courseURL = "/courses/";
         let arrayOfColors = ["#654F6F", "#654F6F", "A8C69F", "#CA9CE1"];
         let styleToAdd = {
