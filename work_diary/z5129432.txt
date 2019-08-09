@@ -41,3 +41,7 @@ Week 9
 1. assign task to prepare the demonstration
 2. assign task to write the report
 3. test system in CSE lab computer
+
+Week 10
+1. demonstrate the project
+2. write final report
