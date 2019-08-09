@@ -1,4 +1,4 @@
-# HJPR Project
+# HJPR Project Documentation
 
 Course Feature Extraction and Recommender System
 
@@ -10,8 +10,7 @@ Course Feature Extraction and Recommender System
 ## Interface
 
 - [HJPR Backend API Documentation](./documentation/backend_api.md)
-- [HJPR Model Interface](./documentation/model_interface.md)
-- [HJPR Server URL Defination](./documentation/server_url.md)
+- [HJPR Backend Model Interface](./documentation/model_interface.md)
 
 ## File structure
 
