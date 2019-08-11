@@ -43,3 +43,8 @@ Week8:-
 Week9:-
 1) Team meeting for implementing and merging the code together
 2) Resolving few problems faced after compilation of the code together with the frontend
+3) Worked on the project presentation for the lab
+
+Week10:-
+1) Demo was given on the project in the lab
+2) Worked on the final project report
