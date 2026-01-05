@@ -21,7 +21,7 @@
     },
     "homepage": "https://github.com/unsw-cse-comp3900-9900/capstone-project-hjpr#readme",
     "devDependencies": {
-        "react-scripts": "^3.0.1"
+        "react-scripts": "^5.0.1"
     },
     "dependencies": {
         "bootstrap": "^4.3.1",
